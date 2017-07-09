@@ -1,0 +1,210 @@
+<?page title="Mantenimiento de Vehiculos" contentType="text/html;charset=UTF-8"?>
+<zk>
+
+ <script src="Js/jquery/jquery.min.js"></script>
+    <script src="Js/jquery/jquery.widget.min.js"></script>
+    <script src="Js/jquery/jquery.mousewheel.js"></script>
+    <script src="Js/prettify/prettify.js"></script>
+
+    <!-- Metro UI CSS JavaScript plugins -->
+    <script src="js/load-metro.js"></script>
+
+    <!-- Local JavaScript -->
+    <script src="js/docs.js"></script>
+    <script src="js/github.info.js"></script>
+
+<window title="" style="metro" border="normal" width="100%" height="100%" id="winvehiculo" apply="ucsg.gmaps.control.VehiculoControl">
+ <style src="Css/docs.css"/>
+<style src="Css/metro-bootstrap-responsive.css.css"/>
+<style src="Css/iconFonts.css"/>
+<style src="Css/metro-bootstrap.css"/>
+<borderlayout width="100%" height="100%" hflex="1" >
+	
+	<center border="normal" hflex="1" >
+	<panel border="none" width="100%" height="100%" framable="true">
+	<panelchildren ><!--  onClick="winvehiculo$composer.cargarDataModal()" -->
+		<toolbar>
+		<!-- <toolbarbutton label="Nuevo vehiculo" onClick="winvehiculo$composer.cargarDataModal()"/> -->
+		<fisheyebar itemMaxHeight="40" itemMaxWidth="40"  width="50" height="50" itemWidth="25" itemHeight="25"  >
+				<fisheye  id="febAgregarVehiculo" image="Img/appbar.add.png"  style="background-color:#16499a;" tooltiptext="Agregar Vehiculos" onClick='winvehiculo$composer.cargarDataModal5()'  />
+		</fisheyebar>
+		</toolbar>
+		<listbox id="listveh" model="@{winvehiculo$composer.veh}" multiple="true" mold="paging" pageSize="10" vflex="1"
+		 selectedItem="@{winvehiculo$composer.objVehiculo}"><!-- onDoubleClick="winvehiculo$composer.cargarDataModal()" -->
+		<auxhead>
+				<auxheader colspan="1"></auxheader>
+				<auxheader colspan="1">
+					<image src="/Img/filtro.png"/>
+					<textbox hflex="1"  tooltiptext="Filtro de Nombre de Vehiculo" instant="true" id="txtFilNomVeh" onOK="winvehiculo$composer.filtraVehiculo()"/>
+				</auxheader>
+				<auxheader colspan="1">
+					<image src="/Img/filtro.png"/>
+					<!-- <textbox hflex="1"  width="50%" instant="true" maxlength="100" tooltiptext="Filtro de Usuario" id="txtFilUsu" onOK="winvehiculo$composer.filtraVehiculo()"/> -->
+					
+					<combobox id="cmbCli" hflex="1" model="@{winvehiculo$composer.clientes}" tooltiptext="Filtro de Usuario" onOK="winvehiculo$composer.filtraVehiculo()" onSelect="winvehiculo$composer.filtraVehiculo()" selectedItem="@{winvehiculo$composer.objCli}">   
+							<comboitem   self="@{each=cli}" label="@{cli.usuario}" context="@{cli.cedula}"  />
+					</combobox>
+				
+				</auxheader>
+				
+				<auxheader colspan="1">
+					<image src="/Img/filtro.png"/>
+					<!-- <textbox hflex="1" width="50%" tooltiptext="Filtro de Categoria" instant="true" id="txtFilCat" onOK="winvehiculo$composer.filtraVehiculo()"/> -->
+					<combobox id="cmbCatVeh"  hflex="1"  model="@{winvehiculo$composer.catVeh}" tooltiptext="Filtro de Categoria" onOK="winvehiculo$composer.filtraVehiculo()" onSelect="winvehiculo$composer.filtraVehiculo()" selectedItem="@{winvehiculo$composer.objCatSelected}">   
+						<comboitem   self="@{each=cat}" label="@{cat.descripcion}" context="@{cat.id_categoria}"  />
+					</combobox>				
+				</auxheader>
+				<auxheader colspan="1">
+					<image src="/Img/filtro.png"/>
+					<!-- <textbox hflex="1"  width="50%" instant="true" maxlength="100" tooltiptext="Filtro de Grupo" id="txtFilGru" onOK="winvehiculo$composer.filtraVehiculo()"/> -->
+					<combobox id="cmbGruVeh"  hflex="1"  model="@{winvehiculo$composer.gruVeh}" tooltiptext="Filtro de Grupo" onOK="winvehiculo$composer.filtraVehiculo()" onSelect="winvehiculo$composer.filtraVehiculo()" selectedItem="@{winvehiculo$composer.objGruSelected}">   
+						<comboitem   self="@{each=gru}" label="@{gru.gr_descripcion}" context="@{gru.igr_Id}"  />
+					</combobox>
+				</auxheader>
+				
+				<auxheader colspan="1">
+					<image src="/Img/filtro.png"/>
+					<textbox hflex="1" width="50%" tooltiptext="Filtro de Imei" instant="true" id="txtFilIme" onOK="winvehiculo$composer.filtraVehiculo()"/>
+				</auxheader>
+				<auxheader colspan="1">
+					<image src="/Img/filtro.png"/>
+					<textbox hflex="1"  width="50%" instant="true" maxlength="100" tooltiptext="Filtro de Recorrido" id="txtFilRec" onOK="winvehiculo$composer.filtraVehiculo()"/>
+				</auxheader>
+				
+				<auxheader colspan="1">
+					<image src="/Img/filtro.png"/>
+					<textbox hflex="1" width="50%" tooltiptext="Filtro de Nombre de Mantenimiento" instant="true" id="txtFilMan" onOK="winvehiculo$composer.filtraVehiculo()"/>
+				</auxheader>
+				<auxheader colspan="1">
+					<image src="/Img/filtro.png"/>
+					<!-- <textbox hflex="1"  width="50%" instant="true" maxlength="100" tooltiptext="Filtro de Cerca" id="txtFilCer" onOK="winvehiculo$composer.filtraVehiculo()"/> -->
+				
+				<combobox id="cmbCer"  hflex="1" model="@{winvehiculo$composer.cercas}" tooltiptext="Filtro de Cerca" onOK="winvehiculo$composer.filtraVehiculo()" onSelect="winvehiculo$composer.filtraVehiculo()" selectedItem="@{winvehiculo$composer.cerca}">   
+					<comboitem   self="@{each=cer}" label="@{cer.nombreCerca}" context="@{cer.idCercas}"  />
+				</combobox>
+				
+				</auxheader>
+				
+				<auxheader colspan="1">
+					<image src="/Img/filtro.png"/>
+					<textbox hflex="1" width="50%" tooltiptext="Filtro de Nombre de Hora/Uso" instant="true" id="txtFilHorUso" onOK="winvehiculo$composer.filtraVehiculo()"/>
+				</auxheader>
+				<auxheader colspan="1">
+					<image src="/Img/filtro.png"/>
+					<textbox hflex="1"  width="50%" instant="true" maxlength="100" tooltiptext="Filtro de Placa" id="txtFilPla" onOK="winvehiculo$composer.filtraVehiculo()"/>
+				</auxheader>
+				
+				<auxheader colspan="1">
+					<image src="/Img/filtro.png"/>
+					<textbox hflex="1"  width="50%" instant="true" maxlength="100" tooltiptext="Filtro de Estado" id="txtFilEstado" onOK="winvehiculo$composer.filtraVehiculo()"/>
+				</auxheader>
+						
+	</auxhead>	
+	<listhead>
+		<listheader id="lshEditar" label="Editar" hflex="min" />
+		<listheader id="lshNomVehiculo" label="Nombre Vehiculo" hflex="min" />
+		<listheader id="lshUsuario" label="Usuario" hflex="1"/>
+		<listheader id="lshCategoria" label="Categoria" hflex="min"/>
+		<listheader id="lshGrupo" label="Grupo" hflex="1"/>
+		<listheader id="lshImei" label="Imei"  hflex="min"/>
+		<listheader id="lshRecorrido" label="Recorrido"  hflex="1" align="right"/>
+		<listheader id="lshMant" label="Mant" hflex="1"/>
+		<listheader id="lshCerca" label="Cerca" hflex="1" />
+		<listheader id="lshHorasUso" label="Horas/Uso" hflex="1" align="right"/>
+		<listheader id="lshPlaca" label="Placa" hflex="1"/>
+		
+		<listheader id="lshEstado" label="Estado" hflex="1"/>
+		
+		
+		<!-- <listheader label="Año" hflex="1"/>
+		<listheader label="Alias" hflex="1"/>
+		<listheader label="Notas" hflex="1"/> -->
+		
+	</listhead>
+	<listitem self="@{each='vehiculo'}">
+		
+		<!-- <listcell  image="/Img/editar.png" onClick="winvehiculo$composer.cargarDataModal()"/> -->
+		<listcell     >
+				<image id="imgBorrar" src="/Img/Erase.png" tooltiptext="Eliminar" style="background-color:#16499a;" onClick="winvehiculo$composer.eliminarVehiculo()" width="25px" height="25px"/>
+				<image id="imgEditar" src="/Img/appbar.edit.box.png"  style="background-color:#16499a;"  tooltiptext="Actualiza información de vehículo"  onClick="winvehiculo$composer.cargarDataModal()"  width="25px" height="25px"/>
+				<image id="imgTimerForward" src="/Img/appbar.timer.forward.png"  style="background-color:#16499a;"  tooltiptext="Actualiza Kilometraje"  onClick="winvehiculo$composer.cargarDataModal2()"  width="25px" height="25px"/>
+				<image id="imgManWalk" src="/Img/appbar.man.walk.png"  style="background-color:#16499a;" tooltiptext="Asigna Usuarios a reportar"  onClick="winvehiculo$composer.cargarDataModal3()"  width="25px" height="25px"/>
+				<image id="imgGrupo" src="/Img/appbar.group.png"  style="background-color:#16499a;"  tooltiptext="Verifica Usuarios" onClick="winvehiculo$composer.cargarDataModal4()"  width="25px" height="25px"/>
+		
+		</listcell>
+		<listcell label="@{vehiculo.nombre}" />
+		<listcell label="@{vehiculo.usuario}" />
+		<listcell label="@{vehiculo.categoria}" />
+		<listcell label="@{vehiculo.grupo}" />
+		<listcell label="@{vehiculo.imei}" />
+		<listcell label="@{vehiculo.recorrido}" />
+		<listcell label="@{vehiculo.mantenimiento}" />
+		<listcell label="@{vehiculo.cercaNombre}" />
+		<listcell label="@{vehiculo.ve_horas_encendido}" />
+		<listcell label="@{vehiculo.Placa}" />
+		
+		<listcell label="@{vehiculo.estado}" />
+		
+		
+		
+		<!-- <listcell label="@{vehiculo.ve_anio}" />
+		<listcell label="@{vehiculo.ve_alias}" />
+		<listcell label="@{vehiculo.ve_notas}" /> -->
+		
+		
+		
+		
+		
+		
+	</listitem>
+	
+</listbox>
+
+	</panelchildren>
+	</panel>
+	</center>
+	
+	
+	
+	<west size="300px" border="normal" title="Filtro de Búsqueda" hflex="1" collapsible="true" visible="false" > 
+	<!-- <panel border="none" width="100%" height="100%" framable="true">
+	<panelchildren>
+	
+	<separator spacing="10px"/>
+	<space spacing="10px"></space> -->
+	<grid hflex="1">
+		<rows hflex="1">
+			<row>
+				<label value="Categorias: " hflex="1"></label>
+			
+					<!-- <combobox id="cmbCatVeh"  hflex="1"  model="@{winvehiculo$composer.catVeh}" selectedItem="@{winvehiculo$composer.objCatSelected}">   
+						<comboitem   self="@{each=cat}" label="@{cat.descripcion}" context="@{cat.id_categoria}"  />
+					</combobox> -->
+			</row>	
+				<!-- <separator spacing="10px"/> -->
+			<row>	
+				<!-- <space spacing="10px"></space>-->
+					<label value="Grupos: " hflex="1" ></label> 
+					<!-- <combobox id="cmbGruVeh"  hflex="1"  model="@{winvehiculo$composer.gruVeh}" selectedItem="@{winvehiculo$composer.objGruSelected}">   
+						<comboitem   self="@{each=gru}" label="@{gru.gr_descripcion}" context="@{gru.igr_Id}"  />
+					</combobox> -->
+			</row>
+				
+			<row>	
+				<!-- <div align="center"> -->
+				<cell colspan="2" style="text-align:center">
+					<button label="Buscar" onClick="winvehiculo$composer.filtroBusqueda()" />
+				</cell>
+				<!-- </div> -->
+			</row>
+		</rows>
+	</grid>
+	<!-- </panelchildren>
+	</panel> -->
+	</west>
+	
+	
+</borderlayout>
+
+</window>
+</zk>

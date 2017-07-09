@@ -1,0 +1,23 @@
+<?page title="Mapa de Alarma" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="Mapa de Alarma" border="normal" apply="ucsg.gmaps.control.ControlMapaAlarmas" width="700px" height="500px" closable="true"  id="winMantAlarmas" >
+<borderlayout width="100%" height="100%" >
+	<center >
+		   <div align="center" width="100%" height="100%">
+		   
+		   		<script type="text/javascript" content="zk.googleAPIkey='AIzaSyAy-s3CJS3dBEtl3CNmY9eckKSIdM02Uj0'"/>
+    <gmaps id="mymap" width="100%" height="100%" showSmallCtrl="true"
+	showTypeCtrl="true" lat="40.71213418976525" lng="-73.96785736083984" zoom="13" scrollWheelZoom="true"  >
+	<gmarker id="mymark2" visible="true"  draggable="false" droppable="false"  onCreate="winMantAlarmas$composer.myMark(self.getLat(),self.getLng())"/>	   
+	</gmaps>	   
+		   </div>
+   
+   </center>
+   <south size="25px" collapsible="true" autoscroll="true" >
+   <hlayout>
+   <button label="Cerrar" onClick="winMantAlarmas$composer.cerrar()" />
+   </hlayout>
+   </south>
+</borderlayout>
+</window>
+</zk>

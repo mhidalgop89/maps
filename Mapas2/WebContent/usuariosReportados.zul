@@ -1,0 +1,67 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="" sclass="metro" vflex="min" border="normal" width="70%" height="80%" 
+	closable="true" apply="ucsg.gmaps.control.UsuariosReportadosControl"  id="winVehUser" >   
+ 
+	<borderlayout width="100%" vflex="min" >
+     
+	    <center vflex="1">
+	   <div align="center" width="100%" vflex="min"> 
+	    <groupbox vflex="min" closable="false">
+	    <caption label="Reporta Vehiculo Usuario" id="cptReportaVehUsuario" />
+	   <grid fixedLayout="true" vflex="min" >
+	       
+	        <rows>
+	         
+	          <row>
+	          	<cell colspan="2">
+	          		
+	          		<!--mold="paging" pageSize="8" onSelect="winMantPer$composer.permisoPerfil()" -->
+	          		<listbox  vflex="1" id="listcli" model="@{winVehUser$composer.usu}"   
+	          		selectedItem="@{winVehUser$composer.objUsuario}" emptyMessage="No existen usuarios a reportar" >
+				
+						<!-- <auxhead>
+									<auxheader colspan="1">
+										<image src="/Img/filtro.png"/>
+										<textbox hflex="1" width="50%" tooltiptext="Filtro de Usuario" instant="true" id="txtFilUsu" onOK="winVehUser$composer.filtraUsuario()"/>
+									</auxheader>
+									
+									
+						</auxhead>  -->
+						<listhead >
+							
+							<listheader label="Usuario" id="lshUsuario" />
+							
+					
+						</listhead>
+						<listitem self="@{each='grupo'}"   >
+							
+							<listcell label="@{grupo.nombre}"  />
+							
+						</listitem>
+						
+					</listbox>
+	          	
+	   			</cell>
+	          
+	          </row>
+	          
+	            <row>
+		            <cell colspan="2" style="text-align:center">
+			            <!-- <button label="Guardar" onClick="winVehUser$composer.guardarUsuario()"   sclass="button default primary" />
+			             	<separator orient="vertical" /> -->
+			            <button label="Salir" onClick="winVehUser$composer.cerrarVentana()" id="btnSalir"  sclass="button default primary" />
+			            <!-- <button label="Inactivar" onClick="winPerfil$composer.inactivar()" id="btnEstado" disabled="true"/> -->
+		            </cell>
+	            </row>  
+	        </rows>
+	    </grid>
+	    </groupbox>
+	    </div> 
+	   </center>
+   
+   
+</borderlayout>
+
+</window>
+</zk>

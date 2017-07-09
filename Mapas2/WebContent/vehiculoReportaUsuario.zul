@@ -1,0 +1,85 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="" sclass="metro" vflex="min" border="normal" width="70%" height="80%" 
+	closable="true" apply="ucsg.gmaps.control.VehiculoReportaUsuarioControl"  id="winVehUser" >  
+ 
+	<borderlayout width="100%" vflex="min" >
+     
+	    <center vflex="1">
+	   <div align="center" width="100%" vflex="min"> 
+	    <groupbox vflex="min" closable="false">
+	    <caption label="Reporta Vehiculo Usuario" id="cptReportaVehUsuario" />
+	   <grid fixedLayout="true" vflex="min">
+	       
+	        <rows>
+	          
+	           <row>
+	                <label  value="Nombre Vehiculo:  " id="lblNomVehiculo" width="150px" />
+	                <hlayout>
+	                    <textbox id="txtNomVeh" readonly="true"  width="250px"/>
+	                </hlayout>           
+	            </row>
+	            <row>
+	                <label  value="Placa  " id="lblPlaca" width="150px" />
+	                <hlayout>
+	                    <textbox id="txtPla" readonly="true" width="250px"/>
+	                </hlayout>           
+	                     
+	            </row>
+	          
+	         
+	          
+	          
+	          <row>
+	          	<cell colspan="2">
+	          		
+	          		<!--mold="paging" pageSize="8" onSelect="winMantPer$composer.permisoPerfil()" checkmark="true"-->
+	          		<listbox  vflex="1" id="listcli" model="@{winVehUser$composer.usu}" multiple="true"   
+	          		selectedItem="@{winVehUser$composer.objUsuario}"  emptyMessage="No existen usuarios" >
+				
+						<auxhead>
+									<auxheader colspan="2">
+										<image src="/Img/filtro.png"/>
+										<textbox hflex="1" width="90%" tooltiptext="Filtro de Usuario" instant="true" id="txtFilUsu" onOK="winVehUser$composer.filtraUsuario()"/>
+									</auxheader>
+									
+									
+						</auxhead> 
+						<listhead >
+							
+							<listheader label="Usuario" id="lshUsuario" />
+							<listheader><checkbox id="chbSeleccionaUsuario" onCheck="winVehUser$composer.checkEverything()" /></listheader>
+					
+						</listhead>
+							<listitem self="@{each='grupo'}" ><!--  selected="@{grupo.selected}" -->
+								<listcell label="@{grupo.nombre}"  />
+								<listcell>
+									<checkbox checked="@{grupo.selected}"/><!--  onCheck="winMantPer$composer.onSelelect()"  -->
+								</listcell>
+							</listitem>
+						
+						</listbox>
+	          	
+	   			</cell>
+	          
+	          </row>
+	          
+	            <row>
+		            <cell colspan="2" style="text-align:center">
+			            <button label="Guardar" onClick="winVehUser$composer.guardarUsuario()" id="btnGuardar"  sclass="button default primary" />
+			             	<separator orient="vertical" />
+			            <button label="Cancelar" onClick="winVehUser$composer.cerrarVentana()"  id="btnCancelar" sclass="button default primary" />
+			            <!-- <button label="Inactivar" onClick="winPerfil$composer.inactivar()" id="btnEstado" disabled="true"/> -->
+		            </cell>
+	            </row>  
+	        </rows>
+	    </grid>
+	    </groupbox>
+	    </div> 
+	   </center>
+   
+   
+</borderlayout>
+
+</window>
+</zk>

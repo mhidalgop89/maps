@@ -1,0 +1,40 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window  apply="ucsg.gmaps.control.ReporteRecorridoPorFechaControl"  id="winChartRecorrido" title="" border="normal" width="100%" height="100%" >
+
+
+	<div>
+			<fisheyebar itemMaxHeight="40" itemMaxWidth="40"  width="50" height="50" itemWidth="25" itemHeight="25"  >
+				<fisheye  image="Img/appbar.arrow.left.png"  style="background-color:#16499a;" tooltiptext="Volver" onClick="winChartRecorrido$composer.volver()"  />
+			</fisheyebar>
+	</div>
+	
+	<div align="center">
+	
+	<grid>
+		
+		<rows>
+			<row>	
+				<cell align="center">
+					<label value="Fecha Desde: "/> <separator spacing="5px" orient="vertical"/> <datebox id="dtbFechaDesde"  format="yyyy-MM-dd"  />
+					 <separator spacing="15px" orient="vertical"/>
+					<label value="Fecha Hasta: "/> <separator spacing="5px" orient="vertical"/> <datebox id="dtbFechaHasta" format="yyyy-MM-dd"  />
+				</cell>
+			</row>
+			<row align="center">
+				<cell >
+					<button label="Buscar" onClick="winChartRecorrido$composer.reportePorFecha()"/>
+				</cell>
+			</row>
+		</rows>
+	</grid>
+	
+	</div>
+	<div>
+    	<charts id="chart" type="column"
+        title="Recorrido por Vehiculo"
+        subtitle="Comparativo de recorrido de vehiculos"/>
+    </div>
+
+</window>
+</zk>

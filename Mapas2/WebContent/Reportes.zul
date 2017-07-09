@@ -1,0 +1,74 @@
+<?page title="Reportes" contentType="text/html;charset=UTF-8"?>
+<zk> 
+<window title="" border="none" sclass="metro" vflex="1" width="100%" position="center" apply="ucsg.gmaps.control.ReporteControl" height="100%" id="winReportes" >
+
+<style>
+		.overImage{
+			font-family:"Arial";
+			font-style:italic;
+			font-size:32px;
+			font-weight:bold;
+			text-align: center;
+			
+			}
+		</style>
+<!-- <hlayout vflex="1">
+		<vlayout hflex="1"  > -->
+		
+		
+		
+		 <groupbox vflex="true" closable="false"  sclass="z-demo-config">
+            <caption label="Reportes" />
+           <div width="100%" align="center" height="100%">
+            <button label="Encendido y Apagado" style="background-color:#267DD4; color: white;"  image="/Img/appbar.camera.flash.png" width="200px" height="200px" orient="vertical" 
+                dir="reverse" onClick='winReportes$composer.cargaFrameDinamico("AlarmasEncendidoApagado.zul","7")' />
+                
+            <button label="Alerta de Cercas" style="background-color:#267DD4; color: white;" image="/Img/appbar.book.list.png" width="200px" height="200px" orient="vertical" 
+                dir="reverse" onClick='winReportes$composer.cargaFrameDinamico("AlertaCercas.zul","7")' />   
+                
+            <button label="Comparativo de Recorridos" style="background-color:#267DD4; color: white;" image="/Img/appbar.graph.bar.png" width="200px" height="200px" orient="vertical" 
+                dir="reverse" onClick='winReportes$composer.cargaFrameDinamico("ReporteRecorridoChart.zul","7")' />       
+            
+             <button label="Recorridos por Fecha" style="background-color:#267DD4; color: white;" image="/Img/appbar.graph.bar.png" width="200px" height="200px" orient="vertical" 
+                dir="reverse" onClick='winReportes$composer.cargaFrameDinamico("ReporteRecorridoPorFecha.zul","7")' />   
+            </div>    
+            
+              
+            
+        	</groupbox>
+		
+		
+				<!-- <borderlayout width="100%"  height="100%" >
+				<north size="30%"></north>
+					<center border="0" >
+					
+							<grid hflex="min"  align="center" >
+							
+							
+							<rows style="border: 0px" hflex="min">								
+									<row  align="center" hflex="min">
+										<cell id="celMod" hflex="min" height="75px" align="center" valign="middle" >
+										 	<fisheyebar itemMaxHeight="75" itemMaxWidth="75" itemWidth="50" itemHeight="50"  style="background-color:#267DD4;" >
+												<fisheye image="/Img/appbar.camera.flash.png" tooltiptext="Encendido y Apagado" onClick='winReportes$composer.cargaFrameDinamico("AlarmasEncendidoApagado.zul","7")'  />
+											</fisheyebar>
+										 	
+										</cell>
+									
+										<cell id="celMod1" hflex="min" height="75px" align="center" valign="middle" >
+										 	<fisheyebar itemMaxHeight="75" itemMaxWidth="75" itemWidth="50" itemHeight="50" style="background-color:#267DD4;" >
+												<fisheye image="/Img/appbar.book.list.png"  tooltiptext="Alerta de Cercas" onClick='winReportes$composer.cargaFrameDinamico("AlertaCercas.zul","7")'  />
+											</fisheyebar>
+										 	
+										</cell>
+									</row>
+								</rows>
+							</grid>	
+						</center>
+							
+				</borderlayout> -->
+<!-- 		</vlayout>
+</hlayout> -->
+
+
+</window>
+</zk>

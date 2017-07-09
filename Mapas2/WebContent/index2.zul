@@ -1,0 +1,183 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<zk>
+<style dynamic="true">
+.ctl { border: 1px outset #777; background:#cfeaf1; margin: 2px;
+	margin-right: 10px; padding-left: 2px; padding-right: 2px;
+	display: block; width:80px; text-align:center; }
+
+</style>
+
+<style>
+.hightlight{
+ color: #1469AB;
+ font-weight: bold;
+}
+
+</style>
+
+
+
+<style>
+.hightlightRed{
+ color: #FF0000;
+ font-weight: bold;
+}
+
+</style>
+<window title="" sclass="metro" border="none" width="100%" height="100%"  
+		apply="ucsg.gmaps.control.ControlIndex" id="winLogin" >
+		<style src="Css/docs.css"/>
+<style src="Css/metro-bootstrap-responsive.css.css"/>
+<style src="Css/iconFonts.css"/>
+<style src="Css/metro-bootstrap.css"/>
+		<style>
+			body { 
+				margin: 0; 
+				padding: 0; 
+				border: 0; 
+				font-family: Arial;
+			} 
+			.top { 
+				top: 0; 
+				background: url('Img/bkg_top.png') repeat-x; 
+				height: 81px; width: 100%;
+			} 
+			.uppertop {
+				margin: 0px auto; 
+				position: relative; 
+				min-width: 375px; width: 70%;
+				height: 70px; 
+			} 
+			.main { 
+				display:block; 
+				/*border:1px solid blue;*/ 
+				width:950px; min-width:375px; 
+				height:400px; margin:0 auto; 
+				padding: 80px 0 10px 0; 
+			} 
+			.main .conteiner{
+				width:360px; 
+				height:100%; 
+				position:relative; 
+				/*border:1px solid blue;*/ 
+				margin:0 auto;
+			} 
+			.main .conteiner p { 
+				font-size: 11px; 
+				text-align:justify;
+				color:#434345; 
+			} 
+			.main .conteiner p a, .main .conteiner .login a{ 
+				text-decoration:none;color:#0096D9; 
+			}
+			.main .conteiner .comp{ 
+				width:90px; height:100px;
+				position:absolute; z-index:1; 
+				margin:40px 0 0 -5px; 
+			} 
+			.main .conteiner .login { 
+				background:url('Img/bkg_login.png') no-repeat; 
+				margin:0 auto; width:360px; height:250px;
+				padding:0; 
+				/*border:1px solid blue;*/ 
+			} 
+			.main .conteiner .login h2{
+				margin:0px auto; 
+				display:block; 
+				width:230px; height:35px;
+				color:#005372; 
+				padding:10px; 
+			} 
+			.main .conteiner .login span{
+				color:#004166; 
+			}
+			
+			#bottom{ 
+				width:100%; height:100px; 
+				border-top: 1px solid #3B3B3D; 
+				border-color: rgba(59, 59, 61, .3); 
+			} 
+			.sect{
+				background:url('Img/section.png'); 
+				width:950px;
+				height:12px; 
+				margin:0 auto; 
+				min-width:375px;
+			}			
+		</style>
+		
+		
+		
+		
+		
+			<div zclass="main">
+			<div zclass="conteiner">
+				
+				<div zclass="login" >
+					<!-- <h:h2 style="">Ingresar al Sistema</h:h2> -->
+					
+					<separator orient="horizontal" spacing="5px"/>
+					<div align="center">
+					<label id="lblIngresarSistema" zclass="h2" />
+					</div>
+					<div
+						style="text-align:right;width:265px;margin:0 auto;">
+						<separator orient="horizontal" spacing="15px"/>
+						<!-- <h:span>Usuario</h:span> -->
+						
+						<image src="Img/user1.png" />
+											
+						<textbox id="iden" width="150px" maxlength="15" 
+						readonly="false" focus="true"/>
+					</div>
+					<div
+						style="text-align:right;width:265px;margin:15px auto;">
+						
+						<!-- <h:span>Contraseña</h:span> -->
+						<!--  <label value="Contraseña" zclass="span" />-->
+						<image src="Img/password1.png" />
+						<textbox width="150px" type="password" maxlength="15" id="pass"
+						 onOK="winLogin$composer.validaUsuario2()"/>
+					</div>
+					<div
+						style="font-size:10px;text-align:right;width:270px;margin:10px auto;">
+						<!-- <a href="#">¿Olvidaste tu contraseña?</a>   label="INGRESAR" image="Img/appbar.door.lock.open.png"
+						width="120px" height="30px"  label="INGRESAR"-->
+						<button  id="btnIniciar"    
+							onClick="winLogin$composer.validaUsuario2()"	  >
+							<!-- <attribute name="image">
+							   btnIniciar.setImage("/Img/appbar.door.lock.open.png");
+							</attribute>  sclass="button default primary" -->
+						</button>
+					</div>
+					<div align="center" width="100%">
+					<div align="center" width="100%">	
+							<label id="lblSeleccionIdioma" />
+							<separator orient="horizontal" spacing="5px"/>
+							<combobox width="130px" id="cmbIdioma" onSelect="winLogin$composer.seleccionaIdioma()"  >
+								<comboitem label="English" value="en" />
+								<comboitem label="Español" value="es"/>
+							</combobox>
+					</div>
+					</div>
+				</div>
+				<div zclass="sect_login"></div>
+				<!-- 
+				<h:p>
+					ESTE SITIO HA SIDO ESTRUCTURADO PARA ACCEDER AL
+					SISTEMA DE GESTIÓN ESTRATÉGICO QUE
+					PRESTA LA SUPERINTENDENCIA DE COMPAÑÍAS A TRAVÉS DE
+					SU PORTAL WEB.
+				</h:p>
+				<h:p>
+					SI DESEA VISITAR EL PORTAL WEB DE LA
+					SUPERINTENDENCIA DE COMPAÑIAS
+					<h:a href="#">www.supercias.gob.ec</h:a>
+					DE
+					<h:a href="http://www.supercias.gob.ec">CLIC AQUÍ</h:a>
+				</h:p> -->
+
+			</div>
+		</div>
+</window>
+</zk>

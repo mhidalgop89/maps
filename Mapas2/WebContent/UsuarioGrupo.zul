@@ -1,0 +1,88 @@
+<?page title="Relacion Usuario - Grupo" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="" sclass="metro" vflex="min" border="normal" width="70%" height="80%" 
+	closable="true" apply="ucsg.gmaps.control.MantenimientoGrupoControl"  id="winGrupo" >
+ 
+	<borderlayout width="100%" vflex="min" >
+     
+	    <center vflex="1">
+	   <div align="center" width="100%" vflex="min"> 
+	    <groupbox vflex="min" closable="false">
+	    <caption label="Registro Usuario Grupo"/>
+	   <grid fixedLayout="true" vflex="min">
+	       
+	        <rows>
+	        
+	      
+	        
+	        
+	            <row>
+	                <label  value="Nombre:  " width="150px" />
+	                <hlayout>
+	                    <textbox id="txtNom" readonly="true"  width="250px"/>
+	                </hlayout>           
+	            </row>
+	            <row>
+	                <label  value="Apellido:  " width="150px" />
+	                <hlayout>
+	                    <textbox id="txtApe" readonly="true" width="250px"/>
+	                </hlayout>           
+	                     
+	            </row>
+	          
+	          <row>
+	          	<cell colspan="2">
+	          		
+	          		<!--mold="paging" pageSize="8" onSelect="winMantPer$composer.permisoPerfil()" -->
+	          		<listbox  vflex="1" id="listGrupo" model="@{winGrupo$composer.infoGrupo}"  
+	          		selectedItem="@{winGrupo$composer.objGrupo}" emptyMessage="No existen Grupos en este Usuario." ><!--  multiple="true"  checkmark="true"  -->
+				
+						<auxhead>
+									<auxheader colspan="2">
+										<image src="/Img/filtro.png"/> 
+										<textbox width="80%" tooltiptext="Filtro de Grupo" instant="true" id="txtFilGru" onOK="winGrupo$composer.filtraGrupo()"/>
+									</auxheader>
+									
+									
+						</auxhead>	
+						<listhead >
+							
+							<listheader label="Grupo" />
+							<listheader><checkbox id="chbSeleccionaGrupo" onCheck="winGrupo$composer.checkEverything()" /></listheader>
+							
+					
+						</listhead>
+						<listitem self="@{each='grupo'}"   ><!--  selected="@{grupo.selected}"  -->
+							
+							<listcell label="@{grupo.gr_descripcion}"  />
+							<listcell>
+								<checkbox checked="@{grupo.selected}"/><!--  onCheck="winMantPer$composer.onSelelect()"  -->
+							</listcell>
+							
+						</listitem>
+						
+					</listbox>
+	          	
+	   			</cell>
+	          
+	          </row>
+	          
+	            <row>
+		            <cell colspan="2" style="text-align:center">
+			            <button label="Guardar" onClick="winGrupo$composer.guardarGrupo()"   sclass="button default primary" />
+			             	<separator orient="vertical" />
+			            <button label="Cancelar" onClick="winGrupo$composer.cerrarVentana()"   sclass="button default primary" />
+			            <!-- <button label="Inactivar" onClick="winPerfil$composer.inactivar()" id="btnEstado" disabled="true"/> -->
+		            </cell>
+	            </row>  
+	        </rows>
+	    </grid>
+	    </groupbox>
+	    </div> 
+	   </center>
+   
+   
+</borderlayout>
+
+</window>
+</zk>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from RegistraCoordenadasService WSDL service -->
+
+  <service name="RegistraCoordenadas" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://webservices.gmaps.ucsg"/>
+      <parameter name="wsdlServiceElement" value="RegistraCoordenadasService"/>
+      <parameter name="schemaQualified" value="http://webservices.gmaps.ucsg"/>
+      <parameter name="wsdlServicePort" value="RegistraCoordenadas"/>
+      <parameter name="className" value="ucsg.gmaps.webservices.RegistraCoordenadas"/>
+      <parameter name="wsdlPortType" value="RegistraCoordenadas"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://webservices.gmaps.ucsg" name="insertaCoordenadaDao" qname="operNS:insertaCoordenadaDao" soapAction="">
+        <parameter xmlns:pns="http://webservices.gmaps.ucsg" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:latitud" type="tns:string"/>
+        <parameter xmlns:pns="http://webservices.gmaps.ucsg" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:longitud" type="tns:string"/>
+        <parameter xmlns:pns="http://webservices.gmaps.ucsg" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:altitud" type="tns:string"/>
+        <parameter xmlns:pns="http://webservices.gmaps.ucsg" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:imei" type="tns:string"/>
+      </operation>
+      <parameter name="allowedMethods" value="insertaCoordenadaDao"/>
+
+  </service>
+</deployment>

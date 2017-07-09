@@ -1,0 +1,128 @@
+<?page title="index1" contentType="text/html;charset=UTF-8"?>
+
+<zk>
+
+            
+
+<window id="win" title="" border="normal" mode="modal" width="100%" height="100%" closable="true" apply="ucsg.gmaps.control.StreetViewControl" >
+
+<doublebox id="db1" /><!-- value="-2.137347" -->
+
+<doublebox id="db2" /><!-- value="-79.8922" -->
+
+<html>
+
+<![CDATA[
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+
+  <head>
+
+    <meta charset="utf-8">
+
+    <title>Street View service</title>
+
+    <style>
+
+      html, body, #map-canvas {
+
+        height: 100%;
+
+        margin: 0px;
+
+        padding: 0px
+
+      }
+
+    </style>
+
+   
+
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
+
+    <script>
+
+function initialize() {
+
+      
+
+      
+
+  var fenway = new google.maps.LatLng(${db1.value},${db2.value });
+
+  var mapOptions = {
+
+    center: fenway,
+
+   zoom: 14
+
+  };
+
+ 
+
+  var map = new google.maps.Map(
+
+             document.getElementById('pano'), mapOptions);
+
+ 
+
+  var panoramaOptions = {
+
+    position: fenway,
+
+    pov: {
+
+      heading: 34,
+
+      pitch: 10
+
+    }
+
+  };
+
+  var panorama = new  google.maps.StreetViewPanorama(document.getElementById('map-canvas'),panoramaOptions);
+
+  map.setStreetView(panorama);
+
+
+}
+
+ 
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+ 
+
+    </script>
+
+  </head>
+
+  <body>
+
+    <div id="map-canvas" style="width: 400px; height: 300px"></div>
+
+    <div id="pano" style="position:absolute; left:410px; top: 8px; width: 400px; height: 300px;"></div>
+
+  </body>
+
+</html>
+
+]]>
+
+</html>
+
+ 
+
+<button id="export" label="Click" onClick='Clients.evalJavaScript("initialize()");'>
+
+    </button>
+
+ 
+
+</window>
+
+</zk>

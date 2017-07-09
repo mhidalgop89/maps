@@ -1,0 +1,21 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<zk>
+
+<window  apply="ucsg.gmaps.control.VehiculoReporteControl" id="winChartVehHora" title="" border="normal" width="100%" height="100%"> 
+		<div>
+			<fisheyebar itemMaxHeight="40" itemMaxWidth="40"  width="50" height="50" itemWidth="25" itemHeight="25"  >
+				<fisheye  image="Img/appbar.arrow.left.png"  style="background-color:#16499a;" tooltiptext="Volver" onClick="winChartVehHora$composer.volver()"  />
+			</fisheyebar>
+		</div>
+    <div>
+    	<charts id="chart" type="column"
+        title="Recorrido por Vehiculo"
+        subtitle="Comparativo de recorrido de vehiculos"/>
+    </div>
+    <div>
+    	<fisheyebar itemMaxHeight="40" itemMaxWidth="40"  width="50" height="50" itemWidth="25" itemHeight="25"  >
+				<fisheye  image="Img/appbar.pie.png"  style="background-color:#16499a;" tooltiptext="Reporte estadistico" onClick="winChartVehHora$composer.reporteChartPie()"  />
+		</fisheyebar>
+    </div>
+</window>
+</zk>

@@ -1,0 +1,90 @@
+<?page title="Mantenimiento de Perfiles " contentType="text/html;charset=UTF-8"?>
+<zk>
+
+ <script src="Js/jquery/jquery.min.js"></script>
+    <script src="Js/jquery/jquery.widget.min.js"></script>
+    <script src="Js/jquery/jquery.mousewheel.js"></script>
+    <script src="Js/prettify/prettify.js"></script>
+
+    <!-- Metro UI CSS JavaScript plugins -->
+    <script src="js/load-metro.js"></script>
+
+    <!-- Local JavaScript -->
+    <script src="js/docs.js"></script>
+    <script src="js/github.info.js"></script>
+
+<window title=""  vflex="1" border="normal" sclass="metro" width="100%"  apply="ucsg.gmaps.control.PerfilControl" height="100%" id="winPerfil" > 
+
+<style src="Css/docs.css"/>
+<style src="Css/metro-bootstrap-responsive.css.css"/>
+<style src="Css/iconFonts.css"/>
+<style src="Css/metro-bootstrap.css"/>
+
+
+<borderlayout width="100%" height="100%" vflex="1">
+	
+	<center border="normal" vflex="1">
+	<panel border="none" width="100%" height="100%" framable="true" vflex="1" >
+	<panelchildren  >
+		<toolbar>
+		<!-- <toolbarbutton label="Nuevo Perfil" onClick="winPerfil$composer.cargarDataModal()"/> -->
+		<fisheyebar itemMaxHeight="40" itemMaxWidth="40"  width="50" height="50" itemWidth="25" itemHeight="25"  >
+				<fisheye  image="Img/appbar.add.png"  style="background-color:#16499a;" tooltiptext="Agregar Perfil" onClick="winPerfil$composer.cargarDataModal3()"  />
+		</fisheyebar>
+		
+		</toolbar><!--  onDoubleClick="winPerfil$composer.cargarDataModal()" -->
+		<listbox  vflex="1" id="listPerfil" model="@{winPerfil$composer.infoPer}" multiple="true" mold="paging" pageSize="10" selectedItem="@{winPerfil$composer.objPerfil}">
+			
+			<auxhead>
+						<auxheader colspan="1">
+						</auxheader>
+						<auxheader colspan="1">
+							<image src="/Img/filtro.png"/>
+							<textbox hflex="1" width="50%" tooltiptext="Filtro de Perfil" instant="true" id="txtFilPer" onOK="winPerfil$composer.filtraPerfil()"/>
+						</auxheader>
+						<auxheader colspan="1">
+							<image src="/Img/filtro.png"/>
+							<textbox hflex="1"  width="50%" instant="true" maxlength="100" tooltiptext="Filtro de estado" id="txtFilEst" onOK="winPerfil$composer.filtraPerfil()"/>
+						</auxheader>
+						
+			</auxhead>	
+			<listhead >
+				
+				<listheader label="Editar" hflex="min"/>
+				<listheader label="Perfil" />
+				<listheader label="Estado" />
+				
+		
+			</listhead>
+			<listitem self="@{each='perfil'}" >
+				
+				<!-- <listcell  image="/Img/editar.png" onClick="winPerfil$composer.cargarDataModal()" /> -->
+				<listcell  >
+					<image src="/Img/Erase.png" tooltiptext="Eliminar" style="background-color:#16499a;" 
+					onClick="winPerfil$composer.eliminarPerfil()" width="25px" height="25px"/>
+					
+					<image src="/Img/appbar.edit.box.png"   onClick="winPerfil$composer.cargarDataModal()"  
+							style="background-color:#16499a;"  width="25px" height="25px"/>
+							
+					<image src="/Img/appbar.man.walk.png"  tooltiptext="Ver Usuarios" onClick="winPerfil$composer.cargarDataModal2()" 
+							width="25px" height="25px" style="background-color:#16499a;" />
+							
+				</listcell>				
+				<listcell label="@{perfil.perNombre}" />
+				<listcell label="@{perfil.perEstado}" />
+				
+			</listitem>
+			
+		</listbox>
+
+	</panelchildren>
+	</panel>
+	</center>
+	
+	
+</borderlayout>
+
+
+
+</window>
+</zk>

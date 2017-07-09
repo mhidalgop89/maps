@@ -1,0 +1,87 @@
+<?page title="mapa google v2" contentType="text/html;charset=UTF-8"?>
+<zk >
+<window sclass="metro" title="Mapa de Vehiculos" border="normal"  sizable="true" height="100%" width="100%" id="winMapGoogle2" apply="ucsg.gmaps.control.MapaGoogle2Control" >
+<style src="Css/docs.css"/>
+<style src="Css/metro-bootstrap-responsive.css.css"/>
+<style src="Css/iconFonts.css"/>
+<style src="Css/metro-bootstrap.css"/>
+<!-- <timer id="timer" delay="1000" repeats="true" onTimer="winMapGoogle2.onTimer()"   /> --> 
+
+
+  <timer id="timer" delay="8000" repeats="true" 
+onTimer='winMapGoogle2$composer.onTimer()'     />  
+
+<script type="text/javascript" content="zk.googleAPIkey='AIzaSyAy-s3CJS3dBEtl3CNmY9eckKSIdM02Uj0'"  />
+<borderlayout>
+
+<center border="normal">
+<panel border="none" width="100%" height="100%" framable="true" id="pcGmapsP">
+<panelchildren id="pcGmaps">
+<gmaps id="myMap"  mapType="hybrid" onMapClick="winMapGoogle2$composer.onMapClick( ((event.getGmarker()!=null)? event.getGmarker().getLat():-99999.0)  , ((event.getGmarker()!=null)?event.getGmarker().getLng():-99999.0) )"
+width="100%" height="100%" zoom="10" scrollWheelZoom="true" showZoomCtrl="true" showOverviewCtrl="true" showSmallCtrl="true" showTypeCtrl="true" lat="-2.318825000000000" lng="-79.888853333333330" >
+<!-- <gmarker id="mymark2" open="true" context="qwerty"  /> -->
+<attribute name="onMapMove" ><![CDATA[
+	self.panTo(self.getLat(),self.getLng());	
+	]]>
+
+</attribute>
+<gmarker id="mymark" draggable="false"  >
+           <!--  <attribute name="content"><![CDATA[
+                Hello, <a href="http://www.zkoss.org">ZK</a> on top of Gmarker.
+            ]]></attribute> -->
+ </gmarker>
+ <gmarker id="mymark3" visible="false"/>
+ <gpolyline id="mypoly" color="#3333cc" weight="5"/>
+</gmaps>
+
+<gmaps id="myMapAll"   
+width="100%" height="100%" visible="false" showZoomCtrl="true" showOverviewCtrl="true" mapType="hybrid"
+	showSmallCtrl="true" showTypeCtrl="true"  onMapMove="self.panTo(self.getLat(),self.getLng())">
+	<gmarker id="mymark2"  draggable="false" droppable="true" onCreate="winMapGoogle2$composer.myMark(self.getLat(),self.getLng())"/>
+
+</gmaps>
+
+
+</panelchildren>
+</panel>
+</center>
+<west collapsible="true" size="25%" title="Lista de Vehiculos" id="westMapGoogle2" >
+
+<div height="100%" > 
+<button label="Nuevo Rastreo" onClick="winMapGoogle2$composer.nuevoRastreo()" sclass="image-button primary" />
+<separator orient="horizontal" spacing="1"/>
+<combobox id="cmbCatVeh"  model="@{winMapGoogle2$composer.catVeh}" selectedItem="@{winMapGoogle2$composer.objCatSelected}">   
+<comboitem   self="@{each=cat}" label="@{cat.descripcion}" context="@{cat.id_categoria}"  />
+</combobox>
+<button label="Buscar" onClick="winMapGoogle2$composer.presentaVehiculo()"  />
+<!-- model="@{winMapGoogle2$composer.gMark}"  catVehLlenLis -->
+<listbox id="lisVehiculo" model="@{winMapGoogle2$composer.catVehLlenLis}" multiple="true" mold="paging" pageSize="13" selectedItem="@{winMapGoogle2$composer.objCatVeh}">
+	<listhead>
+
+		<listheader label="Vehiculo"   />
+
+	</listhead>
+	<listitem self="@{each='vehiculo'}" >
+<!-- self.getContext() onClick="winMapGoogle2$composer.allCarsOnMap()" -->
+		<listcell label="@{vehiculo.nomVeh}" context="@{vehiculo.idVeh}"  image="@{vehiculo.imgAct}"  onClick="winMapGoogle2$composer.carOnMap()"  />
+
+	</listitem>
+	
+</listbox>
+
+
+
+    
+<!-- <button label="allCarsOnMap" onClick="winMapGoogle2$composer.allCarsOnMap()"  /> -->
+
+ </div> 
+
+
+
+</west>
+
+
+</borderlayout>
+</window>
+
+</zk>

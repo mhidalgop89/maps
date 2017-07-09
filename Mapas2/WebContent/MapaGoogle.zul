@@ -1,0 +1,94 @@
+<?page title="Google Map" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="Mapa Completo" border="normal" width="100%" height="100%" id="gmap" apply="ucsg.gmaps.control.GmapsControl">
+<!-- <north width="600px" height="600px"> -->
+ <script type="text/javascript" content="zk.googleAPIkey='AIzaSyAy-s3CJS3dBEtl3CNmY9eckKSIdM02Uj0'" />
+  
+  <timer id="timer" delay="1000" repeats="true" 
+onTimer='gmap$composer.onTimer()'     />    
+
+
+     
+    <gmaps id="mymap" width="100%" height="60%" showSmallCtrl="true" showTypeCtrl="true"  >
+        <attribute name="onMapMove"><![CDATA[
+            ((Doublebox) self.getFellow("mylat")).setValue(self.getLat());
+            ((Doublebox) self.getFellow("mylng")).setValue(self.getLng());
+        ]]></attribute>
+        
+         <attribute name="onMapZoom"><![CDATA[
+            ((Intbox) self.getFellow("myzoom")).setValue(self.getZoom());
+        ]]></attribute>
+        <attribute name="onMapClick"><![CDATA[
+            org.zkoss.gmaps.Gmarker gmarker = event.getGmarker();
+            if (gmarker != null)
+                gmarker.setOpen(true);
+        ]]></attribute> 
+         
+    
+         
+        <gmarker id="mymark" lat="-2" lng="-70" iconImage="/Img/Ambulance.png" iconHeight="60" iconWidth="60">
+            <attribute name="content"><![CDATA[
+                Hello, <a href="http://www.zkoss.org">ZK</a> on top of Gmarker.
+            ]]></attribute>
+        </gmarker>
+        <gmarker id="mymark1" lat="-4" lng="-73">
+            <attribute name="content"><![CDATA[
+                Hello, <a href="http://www.zkoss.org">ZK</a> on top of Gmarker.
+            ]]></attribute>
+        </gmarker>
+        
+        <gpolyline color="#FF0000" opacity="100" weight="2"  points="${mymark.lat},${mymark.lng},3,${mymark1.lat},${mymark1.lng},3" />
+        
+        
+    </gmaps>
+    <slider maxpos="17" curpos="${mymap.zoom}" onScroll="mymap.setZoom(self.curpos)"/>
+    
+    <grid>
+        <rows>
+            <row>
+                <label value="Latitude:" />
+                <doublebox id="mylat" value="${mymap.lat}">
+                    <attribute name="onChange"><![CDATA[
+                        mymap.panTo(self.doubleValue(), mymap.getLng());
+                    ]]></attribute>
+                </doublebox>
+            </row>
+            <row>
+                <label value="Longitude:" /> 
+                <doublebox id="mylng" value="${mymap.lng}">
+                    <attribute name="onChange"><![CDATA[
+                        mymap.panTo(mymap.getLat(), self.doubleValue());
+                    ]]></attribute>
+                </doublebox>
+            </row>
+            <row>
+                <label value="Zoom Level:" /> 
+                <intbox id="myzoom" value="${mymap.zoom}">
+                    <attribute name="onChange"><![CDATA[
+                        mymap.setZoom(self.getValue());
+                    ]]></attribute>
+                </intbox>
+            </row>
+            <row>
+                <label value="Open Info:" />
+                <button label="Change" visible="false">
+                    <attribute name="onClick"><![CDATA[
+                        if(myinfo.isOpen())
+                            mymark.setOpen(true);
+                        else
+                            myinfo.setOpen(true);
+                    ]]></attribute>
+                </button>
+            </row>
+        </rows>
+    </grid>
+    
+    
+    
+    <!--<south height="400px" width="400px">-->
+    
+    <!--</north> -->
+    
+    <!--</south>-->
+</window>
+</zk>

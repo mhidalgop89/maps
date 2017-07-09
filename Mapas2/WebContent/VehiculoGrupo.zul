@@ -1,0 +1,27 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<zk> 
+<window title="" border="0" vflex="min" sclass="metro" width="350px" height="380px" closable="true"  id="winvehgru" apply="ucsg.gmaps.control.VehiculoGrupoControl">
+
+<groupbox closable="false" vflex="min">
+    <caption label="VEHICULOS" id="cptVehiculos" style="font-weight:bold; font-family:'Segoe UI_', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;"/>
+		   <grid vflex="min" >
+		        <rows>
+		        	<row>
+		        		<listbox id="listveh" model="@{winvehgru$composer.vehUsu}" multiple="true" mold="paging" pageSize="10"
+							 selectedItem="@{winvehgru$composer.objVehiculo}" emptyMessage="No existen Vehiculos en este grupo."><!-- onDoubleClick="winvehiculo$composer.cargarDataModal()" -->
+							<listhead>
+								<listheader label="Nombre Vehiculo" id="lshNombreVehiculo" hflex="1" />
+							</listhead>
+							<listitem self="@{each='vehiculo'}">
+								<listcell label="@{vehiculo.nombre}" />
+							</listitem>
+						</listbox>
+		        	</row>
+		        	<row align="center">
+		        		<button label="Salir" id="btnSalir" onClick="winvehgru$composer.cerrarVentana()" sclass="button default primary" />
+		        	</row>
+		        </rows>
+		    </grid>
+    </groupbox>
+</window>
+</zk>

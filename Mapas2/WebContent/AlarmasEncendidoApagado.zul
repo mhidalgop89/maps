@@ -1,0 +1,113 @@
+<?page title="Alarmas de encendido y apagado" contentType="text/html;charset=UTF-8"?>
+<zk>
+
+ <script src="Js/jquery/jquery.min.js"></script>
+    <script src="Js/jquery/jquery.widget.min.js"></script>
+    <script src="Js/jquery/jquery.mousewheel.js"></script>
+    <script src="Js/prettify/prettify.js"></script>
+
+    <!-- Metro UI CSS JavaScript plugins -->
+    <script src="js/load-metro.js"></script>
+
+    <!-- Local JavaScript -->
+    <script src="js/docs.js"></script>
+    <script src="js/github.info.js"></script>
+
+
+<window title="" sclass="metro" border="normal" width="100%"  apply="ucsg.gmaps.control.AlarmasControl" height="100%" id="winAlarma" >
+<style src="Css/docs.css"/>
+<style src="Css/metro-bootstrap-responsive.css.css"/>
+<style src="Css/iconFonts.css"/>
+<style src="Css/metro-bootstrap.css"/>
+<borderlayout width="100%" height="100%">
+	
+	
+	<center border="normal">
+	<panel border="none" width="100%" height="100%" framable="true"> 
+	<panelchildren><!-- <toolbarbutton label="Nueva Categoria" onClick="winAlarma$composer.cargarDataModal()"/> -->
+		<toolbar>
+			<!-- <toolbarbutton label="Volver" onClick="winAlarma$composer.volver()"/> --> 
+			<fisheyebar itemMaxHeight="40" itemMaxWidth="40"  width="50" height="50" itemWidth="25" itemHeight="25"  >
+				<fisheye  image="Img/appbar.arrow.left.png"  style="background-color:#16499a;" tooltiptext="Volver" onClick='winAlarma$composer.volver()'  />
+			</fisheyebar> 
+		</toolbar><!-- onDoubleClick="winAlarma$composer.cargarDataModal()" selectedItem="@{winAlarma$composer.objAlarmas}" -->
+		<listbox id="listAlarmas" model="@{winAlarma$composer.infoAlarmas}" onDoubleClick="winAlarma$composer.cargarDataModal()"  
+					selectedItem="@{winAlarma$composer.objAlarmas}" multiple="true" mold="paging" pageSize="10" vflex="true"  >
+			<listhead>
+				
+				<listheader label="Vehiculo" sort="auto" />
+				<listheader label="Longitud" sort="auto" align="right"/>
+				<listheader label="Latitud" sort="auto" align="right"/>
+				<listheader label="Fecha" sort="auto" />
+				<listheader label="Comando" sort="auto" />
+		
+			</listhead>
+			<listitem self="@{each='alarma'}">
+				
+				<listcell label="@{alarma.Vehiculo}" />
+				<listcell label="@{alarma.longitud}" />
+				<listcell label="@{alarma.latitud}" />
+				<listcell label="@{alarma.fecha}" />
+				<listcell label="@{alarma.Comando}" />
+			</listitem>
+			
+		</listbox>
+
+	</panelchildren>
+	</panel>
+	</center>
+	<west size="300px" border="normal" title="Filtro de Búsqueda" collapsible="true"> 
+	<panel border="none" width="100%" height="100%" framable="true">
+	<panelchildren>
+	
+	<groupbox>
+		<grid hflex="1">
+			<rows hflex="1">
+				<row hflex="1">
+					<!-- <separator spacing="10px"/>
+					<space spacing="10px"></space> -->
+					<label value="Categoria: "></label>
+					<combobox id="cmbCatVeh" hflex="1" model="@{winAlarma$composer.catVeh}" selectedItem="@{winAlarma$composer.objCatSelected}" onSelect="winAlarma$composer.fillCmbVeh()">   
+						<comboitem   self="@{each=cat}" label="@{cat.descripcion}" context="@{cat.id_categoria}"  />
+					</combobox>
+					<!-- <separator spacing="10px"/>
+					<space spacing="10px"></space> -->
+				</row>
+				<row>
+					<label value="Nom. Vehiculo: "></label>
+					<combobox id="cmbVeh" hflex="1" model="@{winAlarma$composer.Veh}" selectedItem="@{winAlarma$composer.objVehSelected}">   
+						<comboitem   self="@{each=cvehiculo}" label="@{cvehiculo.nombre}" context="@{cvehiculo.vehId}"  />
+					</combobox>
+				</row>
+				<row>
+					<!-- <separator spacing="10px"/>
+					<space spacing="10px"></space> -->
+					<label value="Fecha desde: "></label>
+					<datebox id="dateFecDes" hflex="1" format="yyyy-MM-dd"/><!--  HH:mm:ss -->
+				</row>
+				<row>
+					<!-- <separator spacing="10px"/>
+					<space spacing="10px"></space> -->
+					<label value="Fecha hasta: "></label>
+					<datebox id="dateFecHas" hflex="1" format="yyyy-MM-dd"/><!--  HH:mm:ss -->
+				</row>
+				<row align="center">
+					<!-- <div align="center"> -->
+					<cell colspan="2">
+						<button label="Buscar" onClick="winAlarma$composer.filtroBusqueda()" sclass="button default primary"  />
+						<separator spacing="10px" orient="vertical"/>
+						<button label="Limpiar" onClick="winAlarma$composer.limpiarBusqueda()" sclass="button default primary" />
+					</cell>
+					<!-- </div> -->
+				</row>
+			</rows>	
+		</grid>		
+	</groupbox>
+	</panelchildren>
+	</panel>
+	</west>
+	
+</borderlayout>
+
+</window>
+</zk>

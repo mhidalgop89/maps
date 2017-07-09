@@ -1,0 +1,97 @@
+<?page title="Registro de Perfil" contentType="text/html;charset=UTF-8"?>
+<zk>
+
+	
+
+
+<window title="" border="0" vflex="1" sclass="metro"  width="100%"  height="95%" closable="true"  id="winMantPer" 
+		apply="ucsg.gmaps.control.RegistroPerfilModalControl"> 
+
+
+<borderlayout width="100%" vflex="1">
+     
+    <center vflex="1">
+   <div align="center" width="100%" vflex="1"> 
+    <groupbox vflex="1">
+    <caption label="Registro de Perfil"/>
+   <grid fixedLayout="true" vflex="1">
+       
+        <rows>
+          <row>
+                <label  value="Perfil: " width="150px" />
+                <hlayout>
+                    <textbox id="txtPer" focus="true" width="250px"/>
+                </hlayout>           
+            </row>
+            <row>
+                Estado:
+                <combobox id="cmbEstPer" readonly="true" disabled="true"><comboitem label="Activo" value="A"/><comboitem label="Inactivo" value="I"/></combobox>
+                <!-- <textbox id="ideCat"   width="250px" focus="true"/> -->       
+            </row>
+          <row>
+	            <cell colspan="2" style="text-align:center">
+		            <button label="Guardar" onClick="winMantPer$composer.guardarPerfil()" sclass="button default primary" />
+		            	<separator orient="vertical" />
+		            <button label="Cancelar" onClick="winMantPer$composer.cerrarVentana()" sclass="button default primary" />
+		            <!-- <button label="Inactivar" onClick="winPerfil$composer.inactivar()" id="btnEstado" disabled="true"/> -->
+	            </cell>
+            </row>  
+          
+          <row>
+          	<cell colspan="2">
+          		
+          		<!--mold="paging" pageSize="8" onSelect="winMantPer$composer.permisoPerfil()" checkmark="true" -->
+          		<listbox  vflex="1" id="listPermiso" model="@{winMantPer$composer.infoPermiso}" multiple="true"  
+          					selectedItem="@{winMantPer$composer.objPermiso}" >
+			
+					<auxhead>
+								<auxheader colspan="2">
+									<image src="/Img/filtro.png"/>
+									<textbox width="80%" tooltiptext="Filtro de Permiso" instant="true" id="txtFilPer" onOK="winMantPer$composer.filtraPerfil()"/>
+								</auxheader>
+								
+								
+					</auxhead>	
+					<listhead >
+						
+						<listheader label="Permiso" />
+						<listheader><checkbox id="chbSeleccionaPermiso" onCheck="winMantPer$composer.checkEverything()" /></listheader>
+				
+					</listhead>
+					<listitem self="@{each='permiso'}"   ><!-- selected="@{permiso.selected}"   -->
+						
+						<listcell label="@{permiso.prmNombre}"  />
+						<listcell>
+							<checkbox checked="@{permiso.selected}"/><!--  onCheck="winMantPer$composer.onSelelect()"  -->
+						</listcell>
+						<!-- <listcell><checkbox checked="@{permiso.selected}" /> </listcell>  -->
+						<!-- <listcell label="@{perfil.prmValor}" /> -->
+					</listitem>
+					
+				</listbox>
+          	
+   			</cell>
+          
+          </row>
+          
+            <row>
+	            <cell colspan="2" style="text-align:center">
+		            <button label="Guardar" onClick="winMantPer$composer.guardarPerfil()" sclass="button default primary" />
+		            	<separator orient="vertical" />
+		            <button label="Cancelar" onClick="winMantPer$composer.cerrarVentana()" sclass="button default primary" />
+		            <!-- <button label="Inactivar" onClick="winPerfil$composer.inactivar()" id="btnEstado" disabled="true"/> -->
+	            </cell>
+            </row>  
+        </rows>
+    </grid>
+    </groupbox>
+    </div> 
+   </center>
+   
+   
+</borderlayout>
+
+
+
+</window>
+</zk>

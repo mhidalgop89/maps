@@ -1,0 +1,12 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window id="winBienvenido" title="" sclass="metro" border="none" width="100%" height="100%"  
+		apply="ucsg.gmaps.control.BienvenidoControl" >
+	<div width="100%" height="100%" align="center">
+		<vbox>
+			<label id="lblWelcome" style="font-family: 'Times New Roman', Times, serif; font-size: 36px; color: aliceblue;"/>
+			<button onClick="winBienvenido$composer.desconectar()" label="log out" style="font-size: 24px;"/>
+		</vbox>
+	</div>
+</window>
+</zk>

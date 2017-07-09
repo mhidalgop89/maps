@@ -1,0 +1,56 @@
+<?page title="Registro de Categoria" contentType="text/html;charset=UTF-8"?>
+
+<zk>
+
+<window title="" border="0" vflex="min"  width="500px" sclass="metro" height="160px" closable="true"  id="winMantUser" apply="ucsg.gmaps.control.RegistroCategoriaModalControl">
+
+
+<borderlayout width="99%" vflex="min" height="100%">
+     
+    <center vflex="min">
+   <div align="center" width="100%" vflex="min" sclass="panel-content" > 
+    <groupbox vflex="min" closable="false">
+    <caption label="REGISTRO DE CATEGORIA" id="cptRegistroCategoria" style="font-weight:bold; font-family:'Segoe UI_', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;"/>
+   <grid fixedLayout="true" vflex="min">
+       
+        <rows>
+        
+      
+        
+        
+            <row>
+                <label  value="Descripcion: " id="lblDescripcion" style="font-weight:bold;" width="150px" />
+                <hlayout>
+                    <textbox id="desCat"  width="250px" focus="true"/>
+                </hlayout>           
+            </row>
+            <row>
+                <label  value="Identificador " id="lblIdentificador" style="font-weight:bold;" width="150px" />
+                <textbox id="ideCat"   width="250px" />       
+            </row>
+            <row>
+                <label  value="Estado " id="lblEstado" style="font-weight:bold;" width="150px" />
+                <textbox id="txtEstado"   width="250px" readonly="true" />       
+            </row>
+          
+            <row>
+            <cell colspan="2" style="text-align:center">
+            <button label="Guardar" id="btnGuardar" onClick="winMantUser$composer.guardarCategoria()" sclass="button default primary"  />
+            <separator orient="vertical" />
+            <button label="Cancelar" id="btnCancelar" onClick="winMantUser$composer.cerrarVentana()" sclass="button default primary" />
+            <separator orient="vertical" />
+            <button label="Activar/Inactivar" onClick="winMantUser$composer.inactivar()" id="btnEstado" disabled="true" sclass="button default primary" />
+            </cell>
+            
+            </row>  
+        </rows>
+    </grid>
+    </groupbox>
+    </div> 
+   </center>
+   
+   
+</borderlayout>
+
+</window>
+</zk>

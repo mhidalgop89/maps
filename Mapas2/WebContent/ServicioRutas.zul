@@ -1,0 +1,66 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<zk>
+		<zscript>
+		    int countNum = 0;
+		</zscript>
+		
+		 <script src="Js/jquery/jquery.min.js"></script>
+	    <script src="Js/jquery/jquery.widget.min.js"></script>
+	    <script src="Js/jquery/jquery.mousewheel.js"></script>
+	    <script src="Js/prettify/prettify.js"></script>
+	
+	    <!-- Metro UI CSS JavaScript plugins -->
+	    <script src="js/load-metro.js"></script>
+	
+	    <!-- Local JavaScript -->
+	    <script src="js/docs.js"></script>
+	    <script src="js/github.info.js"></script>
+		
+		
+<window title="" border="normal"  sclass="metro" vflex="1" width="100%"  apply="ucsg.gmaps.control.ServicioRutasControl" height="100%" id="winRutas" >
+<style src="Css/docs.css"/>
+	<style src="Css/metro-bootstrap-responsive.css.css"/>
+	<style src="Css/iconFonts.css"/>
+	<style src="Css/metro-bootstrap.css"/>
+	
+	<gmaps id="mymap" width="100%" mapType="hybrid" height="90%" showSmallCtrl="true" showZoomCtrl="true"
+	showTypeCtrl="true" scrollWheelZoom="true" lat="-2.318825000000000" lng="-79.888853333333330" zoom="10" doubleClickZoom="false" >
+	    
+	    
+	       <attribute name="onMapDoubleClick">
+	       	
+	       	  
+		    if (countNum > 1) {
+		    	Messagebox.show("Solo Puede escoger 2 puntos sobre el mapa.",
+					"Atención!!!", Messagebox.YES,
+					Messagebox.INFORMATION);
+		        return;
+		    }
+		    
+		    int respuesta = Messagebox.show("¿Desea que este sea un punto de busqueda?",
+					"Atención!!!", Messagebox.YES | Messagebox.NO,
+					Messagebox.INFORMATION);
+					
+			if (respuesta != 16)return;
+   		
+		      double lat = event.lat;
+		      double lng = event.lng;
+		      //add a gmarker on the vertex
+		      new org.zkoss.gmaps.Gmarker("", lat, lng).setParent(mymap); 
+		      //add a polyline vertex point
+		      mypoly.addPoint(lat, lng, 3); 
+		      //display the vertex latitude and longitude
+		      
+		      winRutas$composer.llenaCoordenadas(lat, lng);
+		      countNum++;
+		    </attribute>
+	    
+	    
+	    <gpolyline id="mypoly" color="#3333cc" weight="10"/>
+	</gmaps>
+	<button label="limpiar" onClick="winRutas$composer.limpiar()"  sclass="button default primary"  id="btnLimpiar" />
+	<separator orient="vertical" />
+	<button  label="Buscar Ruta" onClick="winRutas$composer.llamaRuta()"  sclass="button default primary"  id="btnLlamaRuta"/>
+		
+</window>
+</zk>

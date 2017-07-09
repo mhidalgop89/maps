@@ -1,0 +1,50 @@
+<?page title="Actualiza Kilometraje" contentType="text/html;charset=UTF-8"?>
+<zk> 
+<window title="" border="0" vflex="min"  sclass="metro" width="500px" height="130px" closable="true"  id="winActKm" apply="ucsg.gmaps.control.ActualizaKm">
+	<borderlayout width="100%" height="100%" vflex="min">
+     
+   <center vflex="min">
+   <div align="center" width="100%" height="100%" vflex="min">
+    <groupbox vflex="min" closable="false">
+    	<caption label="ACTUALIZA KILOMETRAJE" id="cptActualizaKm" style="font-weight:bold; font-family:'Segoe UI_', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;"/>
+    	<grid fixedLayout="true" vflex="min">
+       
+        <rows>
+        
+        
+            <row>
+                <label  value="KILOMETRAJE TOTAL: " id="lblKmTotal" style="font-weight:bold;" width="150px" />
+                <hlayout>
+                    <label id="lblKmTot" value="XP" focus="true" width="250px"/>
+                </hlayout>           
+            </row>
+            <row>
+                <label  value="KILOMETRAJE ACTUAL: " id="lblKmActual" style="font-weight:bold;" width="150px" />
+                <!-- <textbox id="txtKmAct"   width="250px"  constraint="/^[0-9]+$/: POR FAVOR INGRESE UN NUMERO" onOK="winActKm$composer.guardarKm()"/> -->       
+           		<doublebox id="txtKmAct"   width="250px" onOK="winActKm$composer.guardarKm()" />
+            </row>
+          
+            <row>
+            <cell colspan="2" style="text-align:center">
+            <button label="Actualizar" onClick="winActKm$composer.guardarKm()" id="btnActualizar" sclass="button default primary" />
+            	<separator orient="vertical" />
+            <button label="Cancelar" onClick="winActKm$composer.cerrarVentana()" id="btnCancelar" sclass="button default primary" />
+            
+            </cell>
+            
+            </row>  
+        </rows>
+    </grid>
+    </groupbox>
+    
+   
+    </div>
+   </center>
+   
+   
+</borderlayout>
+
+
+
+</window>
+</zk>

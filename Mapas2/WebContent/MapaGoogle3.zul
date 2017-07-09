@@ -1,0 +1,500 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<zk  xmlns:c="client">
+
+		 <zscript>
+		    int countNum = 3;
+		    void restart() {
+		        countNum = 3;
+		        timer.start();
+		    }
+		</zscript>
+		<script>
+		   function initializeGeoCoder(){
+		        alert('initialize');
+		        geoCoder = new GClientGeocoder();
+		    }
+		</script>
+
+ <style>
+        .plusTab .z-tab-text { 
+            font-weight: bold; color: #9c9c9c; 
+        } 
+        .z-toolbarbutton-cnt, .z-toolbar-tabs { 
+            padding: 0; text-align: center; font-weight: bold; font-size: 14px;color: #9c9c9c; 
+        }
+    </style>
+    
+    <style>
+    .buttonMetro {
+  padding: 4px 12px;
+  text-align: center;
+  vertical-align: middle !important;
+  border: 1px transparent solid;
+  border-radius: 0;
+  cursor: pointer;
+  display: inline-block;
+  outline: none;
+  font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 16px;
+  margin: auto;
+  background-color: #16499a !important;
+  color: #ffffff !important;
+}
+.buttonMetro:active {
+  background-color: #1d1d1d !important;
+  color: #ffffff !important;
+  border-color: transparent;
+}
+    
+    </style>
+    
+    <style>
+.escondido {
+  list-style-type:none;
+  margin:0px;
+  padding:2px 10px;
+  background-color:#eeeeee;
+  opacity:0.2;
+  transition:opacity 0.5s linear;
+}
+ .escondido:hover {
+  opacity:1;
+}
+  </style>
+    
+    
+    <style>
+    .hover{
+body > div {
+  background-color:#f6f6f6;
+  padding:2px 5px;
+  position:relative:
+  height:16px;
+}
+body > div{
+  list-style-type:none;
+  margin:0px;
+  padding:2px 10px;
+  position:absolute;
+  left:0px;
+  top:17px;
+  background-color:#eeeeee;
+  opacity:0.2;
+  transition:opacity 0.5s linear;
+}
+body > div:hover {
+  opacity:1;
+}
+}
+  </style>
+     <style>
+    .water-mark { 
+        color: gray; font-style: italic; 
+    }
+    .form {
+        border: 1px solid #E1E1E1;
+        background: url('../widgets/effects/form_effect/img/bg.png');
+        padding: 20px 20px;
+        -webkit-border-radius:4px;
+        -moz-border-radius:4px;
+        border-radius:4px;
+    }
+    .form .name {
+        display: block;
+        width: 100px;
+        text-align: center;
+    } 
+    </style>
+    
+    <zscript>
+int i = 0
+</zscript>
+ <!-- <script type="text/javascript" content="zk.googleAPIkey='AIzaSyAy-s3CJS3dBEtl3CNmY9eckKSIdM02Uj0'" /> -->
+ <script type="text/javascript" content="zk.googleAPIkey='AIzaSyCzWua6DymqB7BUHtGRCc35ObLPmmIWypc'" /> 
+
+<!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false;"></script> -->
+
+  <script src="Js/jquery/jquery.min.js"></script>
+    <script src="Js/jquery/jquery.widget.min.js"></script>
+    <script src="Js/jquery/jquery.mousewheel.js"></script>
+    <script src="Js/prettify/prettify.js"></script>
+
+    <!-- Metro UI CSS JavaScript plugins -->
+    <script src="js/load-metro.js"></script> 
+
+    <!-- Local JavaScript
+    <script src="js/docs.js"></script>
+    <script src="js/github.info.js"></script> -->
+<!-- sclass="metro" -->
+<window title=""  border="normal" sclass="metro" id="winMapGoogle2"  apply="ucsg.gmaps.control.MapaGoogle3Control" width="100%" height="100%"  >
+  <!-- <timer id="timer" delay="60000" repeats="true" onTimer='winMapGoogle2$composer.onTimer()'     />  -->  
+ 
+ <!-- <style src="Css/docs.css"/>
+<style src="Css/metro-bootstrap-responsive.css.css"/>
+<style src="Css/iconFonts.css"/>
+<style src="Css/metro-bootstrap.css"/> -->
+
+
+ 
+ 
+ <timer id="timer2" delay="8000" repeats="true" 
+onTimer='winMapGoogle2$composer.onTimer2()'     />  
+<borderlayout id="bly1" width="100%" height="100%">
+
+<center id="cnt1" border="normal" draggable="false"  autoscroll="false"  >
+		<borderlayout width="100%" height="100%" > 
+			<center border="normal"  > 
+				<panel border="none" width="100%" height="100%" framable="true" id="pnl1">
+				 <panelchildren id="pcGmaps"> 
+				
+				
+				<!-- <combobox visible="false"><comboitem label="1"/><comboitem label="2"/></combobox> -->
+				
+				
+				<gmaps id="myMap" enableGoogleBar="true" 
+				 onMapClick="winMapGoogle2$composer.onMapClick2( ((event.getGmarker()!=null)? event.getGmarker().getLat():-99999.0)  , ((event.getGmarker()!=null)?event.getGmarker().getLng():-99999.0) )" 
+				hybrid="true" mapType="hybrid" width="100%" height="100%" showZoomCtrl="true" showSmallCtrl="true" showTypeCtrl="true" 
+				 scrollWheelZoom="true" lat="-2.318825000000000" lng="-79.888853333333330" zoom="10" >
+				<gpolyline id="mypoly2" color="#3333cc" weight="3"/>
+				<attribute name="onMapMove" ><![CDATA[
+					self.panTo(self.getLat(),self.getLng());	
+					]]>
+				
+				</attribute>
+				<gmarker id="mymark" draggable="false" >
+				           <!--  <attribute name="content"><![CDATA[
+				                Hello, <a href="http://www.zkoss.org">ZK</a> on top of Gmarker.
+				            ]]></attribute> -->
+				 </gmarker>
+				  <gmarker id="mymark3" visible="false"/>
+				</gmaps>
+				
+				
+				<!-- myMapAll.getEventHandler("MapMouseEvent")   onMapClick='winMapGoogle2$composer.onMapClick(myMapAll.getLat(),myMapAll.getLng())' -->
+				<gmaps 	id="myMapAll"  hybrid="true" onMapClick="winMapGoogle2$composer.onMapClick( ((event.getGmarker()!=null)? event.getGmarker().getLat():-99999.0)  , ((event.getGmarker()!=null)?event.getGmarker().getLng():-99999.0) )" 
+						enableGoogleBar="true" showZoomCtrl="true" width="100%" height="100%" showScaleCtrl="true" 
+						visible="false" showSmallCtrl="true" showTypeCtrl="true" mapType="hybrid" >
+									<gmarker id="mymark2"   draggable="true" droppable="false"  />
+									<!-- <gmarker id="mymark4" visible="false"/> -->
+									
+									<gpolyline id="mypoly" color="#3333cc" weight="3"/>
+									<ginfo id="myinfo" />
+									<!-- onMapClick="winMapGoogle2$composer.onMapClick1()"  <gmarker id="mymark3"  draggable="false" droppable="true" onCreate="winMapGoogle2$composer.myMark(self.getLat(),self.getLng())" visible="false"/> -->
+									<!-- <attribute name="onMapDoubleClick">
+								           mymark2 = event.getGmarker();
+								            myinfo = event.getGmarker();
+								            System.out.println("nulls pr: "+ event.getGmarker());
+								           if (mymark2 != null) {
+								           
+								           //System.out.println("mymaark2_321: "+ event.getGmarker().getLat()+" \n Longitud: "+event.getGmarker().getLng());
+								           	   myinfo.setContent("say hey");
+								           	   mymark2.setContent("zscript Latitud: "+event.getGmarker().getLat()+" \n\n Longitud: "+event.getGmarker().getLng());
+								               mymark2.setOpen(true);
+								               myinfo.setOpen(true);
+								               myMapAll.appendChild(mymark2);
+								               myMapAll.appendChild(myinfo);
+								           }
+								       </attribute> -->
+				</gmaps>
+				
+					
+				<!-- <gmaps 	id="myMapAll2" model="@{winMapGoogle2$composer.infoCoor}" showScaleCtrl="true"  enableGoogleBar="true" 
+						showZoomCtrl="true" width="100%" height="50%" visible="false" showSmallCtrl="true" showTypeCtrl="true" mapType="normal" >
+									<gmarker self="@{each=coord}" lat="@{coord.latitud}" lng="@{coord.longitud}" draggable="false" droppable="false"  />
+									
+				</gmaps> -->
+				
+				<div style="position : absolute; right : 100px; top : 400px;" sclass="escondido"
+				 height="50px" width="350px"  id="divControles" visible="false" >
+				
+						<groupbox closable="false" id="grbControles"  >
+								       	<caption>CONTROLES</caption>
+											<listbox>
+													<listitem >	
+														<listcell><!--  onClick="winMapGoogle2$composer.busAva()"  -->
+															<image src="/Img/appbar.control.rewind.png"  width="30px" height="30px" tooltiptext="Retroceder" onClick="winMapGoogle2$composer.backTrack()" style="background-color:#16499a;" />
+														</listcell>
+														<listcell>
+															<image src="/Img/appbar.control.play.png"  width="30px" height="30px"  onClick="timerRuta.start()" tooltiptext="Play" style="background-color:#16499a;"/>
+														</listcell>
+														<listcell>
+															<image src="/Img/appbar.control.pause.png"  width="30px" height="30px" tooltiptext="Pausa" onClick="timerRuta.stop()"  style="background-color:#16499a;"/>
+														</listcell>
+														<listcell>
+															<image src="/Img/appbar.control.stop.png"  width="30px" height="30px" tooltiptext="Detener"  onClick="winMapGoogle2$composer.stopTimerRuta()"  style="background-color:#16499a;"/>
+														</listcell>									
+														<listcell>
+															<image src="/Img/appbar.control.fastforward.png"  width="30px" height="30px" tooltiptext="Adelentar" onClick="winMapGoogle2$composer.playBtn()"  style="background-color:#16499a;"/>
+														</listcell>
+														
+														
+														
+													</listitem>
+											</listbox>
+									       
+										</groupbox>
+					
+				</div>
+				
+				 </panelchildren>
+				 
+				
+				</panel>
+				
+				
+			
+				
+				</center> 
+				
+				<!-- collapsible="true" size="250px" title="Lista de Vehiculos" autoscroll="true" id="westMapaGoogle3" -->
+				<south  size="42%"  collapsible="true" id="southMapaGoogle3" open="false" splittable="true">
+					
+					<div width="100%" height="100%" id="idSouthdiv1">
+					
+						<borderlayout width="100%" height="100%">
+						<west size="60%" >
+						
+						<panel  width="100%" height="100%" >
+						<panelchildren>
+							<label id="labelCount"></label>
+							<!-- <toolbar><toolbarbutton label="Nueva Categoria" onClick="winuser$composer.cargarDataModal()"/></toolbar> -->
+							<listbox id="listCoord"   model="@{winMapGoogle2$composer.infoCoor}" mold="paging"  onPaging="winMapGoogle2$composer.esperar()" 
+							pageSize="5" onDoubleClick="winMapGoogle2$composer.acercaVeh()" selectedItem="@{winMapGoogle2$composer.objCoordenadas}" checkmark="true" >
+						<listhead>
+							
+							<listheader id="lshLatitud" label="Latitud" />
+							<listheader id="lshLongitud" label="Longitud"  />
+							<listheader id="lshFecha" label="Fecha" />
+						</listhead>
+						<listitem self="@{each='categoria'}" >
+							
+							<listcell label="@{categoria.latitud}" />
+							<listcell label="@{categoria.longitud}" />
+							<listcell label="@{categoria.fecha}" />
+							
+						</listitem>
+						
+					</listbox>
+					<!-- <timer id="timer" delay="1500" repeats="true"  onCreate="self.stop()"></timer> -->
+					
+						 <timer id="timer" delay="900" repeats="true">
+					        <attribute name="onTimer">
+					        
+					        
+							    if (countNum == 0) {
+							        
+							         Clients.clearBusy(listCoord);
+							         Clients.clearBusy(myMapAll);
+							         Clients.clearBusy(listCantMap);
+							          
+							         timer.stop();
+							        return;
+							    }
+							   
+							    count.value = "Count : " + --countNum + "";
+							    //labelCount.setValue("Count : " + --countNum );
+							</attribute>
+					    </timer>
+					    
+					    <timer id="timerRuta" delay="900" repeats="true" running="false" 
+					    onTimer="winMapGoogle2$composer.playBtn()">
+					       
+					    </timer>
+						
+						</panelchildren>
+						</panel>
+						</west>
+						<east size="40%" >
+								<div align="center">
+									<vlayout>
+									<groupbox width="300px" closable="false">
+										<caption id="cptMapasGenerados" label="MAPAS GENERADOS" />
+										
+									                <!-- <attribute name="onOpen"><![CDATA[cb.setChecked(self.isOpen());]]></attribute> -->
+							            <hbox>
+									                    <!-- <label value="Rutas: " /> -->
+									                     
+											<listbox id="listCantMap"   model="@{winMapGoogle2$composer.infoMapas}" mold="paging"  onPaging="winMapGoogle2$composer.esperarCanMap()" 
+													pageSize="2" onDoubleClick="winMapGoogle2$composer.llamaOtrasRutas()" selectedItem="@{winMapGoogle2$composer.objMap}" checkmark="true" >
+												<listhead>
+													
+													<!-- <listheader label="Mapas" />
+													<listheader label="Fecha"/> -->
+											
+												</listhead>
+												<listitem self="@{each='mapV'}">
+													
+													<listcell label="@{mapV.nombreGmap}" />
+													<listcell label="@{mapV.fecha}" /> 
+													
+												</listitem>
+											</listbox>
+						              </hbox>
+							
+							       </groupbox>
+							       </vlayout>
+							       
+							       <vlayout>
+							       
+							       
+								       
+							       		       
+							       </vlayout>
+							       
+								
+								</div>
+						</east>
+						</borderlayout>	
+				</div>
+		
+
+</south>
+				
+				
+				
+		</borderlayout>
+</center>
+
+
+
+<west  collapsible="true" size="320px" title="Lista de Vehiculos" autoscroll="false" id="westMapaGoogle3">
+
+<div height="100%" > 
+<!-- <button label="Nueva Ruta" onClick="winMapGoogle2$composer.nuevaRuta()" id="btnNueRut" />
+<separator orient="horizontal"/>   -->
+
+
+
+<groupbox open="false" id="grbBusAva">
+<caption id="cptBusquedaAvanzada" label="Busqueda Avanzada"  />
+	<vbox>
+		
+		
+		<tabbox>
+			<tabs>
+				<tab id="tabPorDia" label="Por Dia" />
+				<tab id="tabAvanzada" label="Avanzada" />
+			</tabs>
+			<tabpanels>
+				<tabpanel>
+						<hbox>
+							<label id="lblDia" value="Dia : " width="150px" />
+							<datebox id="fecDesdeDia" format="yyyy-MM-dd" width="175px"/>
+						
+							<!-- <button label="Busqueda" onClick="winMapGoogle2$composer.TrazarRuta6()"  sclass="buttonMetro"/> -->
+							<image id="imgTrazarRuta6" src="/Img/ver.png" onClick="winMapGoogle2$composer.TrazarRuta6()" tooltiptext="Presione para Buscar"/>
+						</hbox>
+				</tabpanel>
+				<tabpanel>
+				
+						<hbox>
+							<label  id="lbldesde" value="Desde: " width="150px" />
+							<datebox id="fecDesde" format="yyyy-MM-dd kk:mm:ss" width="175px"/>
+						</hbox>
+						<hbox>
+							<label  id="lblHasta" value="Hasta: " width="150px" />
+							<datebox id="fecHasta" format="yyyy-MM-dd kk:mm:ss" width="175px" />
+						
+							<!-- <button label="Busqueda" onClick="winMapGoogle2$composer.TrazarRuta7()"  sclass="buttonMetro" /> -->
+							<image id="imgTrazaRuta7" src="/Img/ver.png" onClick="winMapGoogle2$composer.TrazarRuta7()" tooltiptext="Presione para Buscar"/>
+						</hbox>
+						
+				
+				</tabpanel>
+			</tabpanels>
+		</tabbox>
+		
+		
+		
+		
+	
+	</vbox>
+
+</groupbox>
+
+
+
+
+<separator orient="horizontal"/>
+
+
+
+
+<listbox id="lisVehiculo" model="@{winMapGoogle2$composer.catVehLlenLis}" mold="paging" vflex="1" 
+			pageSize="11" selectedItem="@{winMapGoogle2$composer.objCatVeh}" checkmark="true" >
+	<listhead>
+
+		<listheader id="lshVehiculo" label="Vehiculo" width="68%"  />
+	
+	</listhead>
+	<listitem self="@{each='vehiculo'}" >
+<!-- onClick="winMapGoogle2$composer.TrazarRuta( self.getContext())" appbar.location.checkin -->
+		
+		<listcell label="@{vehiculo.nomVeh}"  context="@{vehiculo.idVeh}" onClick="winMapGoogle2$composer.carOnMap()">
+				<cell rowspan="1" > 
+					<image src="/Img/appbar.map.treasure.png" style="background-color:#16499a;" width="30px" height="30px"  onClick="winMapGoogle2$composer.busAva()" id="imgBusquedaAvanzada" tooltiptext="Busqueda Avanzada"/> 
+					<image src="/Img/appbar.calendar.png" width="30px" height="30px"  style="background-color:#16499a;"  onClick="winMapGoogle2$composer.TrazarRuta5()" id="imgReporteHoy"  tooltiptext="Reporte de Hoy"/> 
+					<image src="/Img/appbar.location.checkin.png" style="background-color:#16499a;" width="30px" height="30px"  onClick="winMapGoogle2$composer.carOnMap()" id="imgLocalizarVehiculo" tooltiptext="Localizar Vehiculo"/> 
+				</cell>
+				
+		</listcell>
+
+	</listitem>
+	
+</listbox>
+
+<separator orient="horizontal"/>
+
+<div class="btn-group">
+	<groupbox>
+		<grid>
+			<rows>
+				<row valign="middle" width="100%">
+					<combobox width="100%" id="cmbCatVeh" class="btn-primary dropdown-toggle"  model="@{winMapGoogle2$composer.catVeh}" selectedItem="@{winMapGoogle2$composer.objCatSelected}">   
+						<comboitem    self="@{each=cat}" label="@{cat.descripcion}" context="@{cat.id_categoria}"  />
+					</combobox>
+					<button style="position: relative; left :35%;" id="btnFiltrar" sclass="buttonMetro" label="Filtrar" onClick="winMapGoogle2$composer.presentaVehiculo()"    />	
+				</row>		
+			</rows>
+		</grid>
+	</groupbox>
+</div>
+    
+<!-- <button label="allCarsOnMap" onClick="winMapGoogle2$composer.allCarsOnMap()"  /> -->
+
+
+ </div> 
+
+</west>
+
+
+
+
+
+</borderlayout>
+
+
+</window>
+
+ <!-- Load the script jq("$username").Watermark("Your Name","gray"); -->
+    <script type="text/javascript" src="/Widgets/Effects/FormEffecs/jquery.maskedinput.js" />
+    <script type="text/javascript" src="/Widgets/Effects/FormEffecs/jquery.watermarkinput.js" /> 
+    <script type="text/javascript">
+        zk.afterMount(function() {
+            
+            jq("$fecDesde").Watermark("yyyy-mm-dd hh:mi:ss","gray");
+            jq("$fecHasta").Watermark("yyyy-mm-dd hh:mi:ss","gray");
+            $.mask.definitions['A']='[A-Z]';
+            $.mask.definitions['m']='[01]';
+            $.mask.definitions['d']='[0123]';
+            $.mask.definitions['y']='[12]';
+
+            
+            
+
+        });
+    </script>
+
+
+</zk>

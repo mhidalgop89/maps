@@ -1,0 +1,32 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<zk> 
+<window title="" border="0" vflex="min" sclass="metro" width="350px" height="380px" closable="true"  id="winPerUsu" apply="ucsg.gmaps.control.UsuarioPerfilControl">
+
+
+	
+	 <groupbox closable="false" vflex="min">
+    <caption label="USUARIOS"  style="font-weight:bold; font-family:'Segoe UI_', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;"/>
+		   <grid vflex="min" >
+		        <rows>
+		        	<row>
+		        		<listbox id="listcli" vflex="1" model="@{winPerUsu$composer.usu}" multiple="true" mold="paging" emptyMessage="No existen Usuarios en este Perfil." pageSize="10" selectedItem="@{winPerUsu$composer.objUsuario}"  >	
+	
+								<listhead>
+									<listheader label="Nombre"  />
+								</listhead>
+								<listitem self="@{each='cli'}">
+										<listcell label="@{cli.nombre}" />
+								</listitem>
+								
+						</listbox>
+		        	</row> 
+		        	<row align="center">
+		        		<button label="Salir" onClick="winPerUsu$composer.cerrarVentana()" sclass="button default primary" />
+		        	</row>
+		        </rows>
+		    </grid>
+    </groupbox>
+
+
+</window>
+</zk>

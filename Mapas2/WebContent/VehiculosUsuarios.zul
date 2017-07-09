@@ -1,0 +1,42 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<zk> 
+<window title="" border="0" vflex="min" sclass="metro" width="350px" height="380px" closable="true"  id="winvehusu" apply="ucsg.gmaps.control.RegistroVehiculoUsuarioControl">
+
+
+<!-- <borderlayout width="100%" vflex="min" >
+ 
+<center vflex="min" autoscroll="true">
+   <div align="center" width="100%" vflex="min"> -->
+  	
+    
+    <groupbox closable="false" vflex="min">
+    <caption label="VEHICULOS"  style="font-weight:bold; font-family:'Segoe UI_', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;"/>
+		   <grid vflex="min" >
+		        <rows>
+		        	<row>
+		        		<listbox id="listveh" model="@{winvehusu$composer.vehUsu}" multiple="true" mold="paging" pageSize="10"
+							 selectedItem="@{winvehusu$composer.objVehiculo}" emptyMessage="No existen Vehiculos con este Usuario."><!-- onDoubleClick="winvehiculo$composer.cargarDataModal()" -->
+							<listhead>
+								<listheader label="Nombre Vehiculo" hflex="1" />
+							</listhead>
+							<listitem self="@{each='vehiculo'}">
+								<listcell label="@{vehiculo.nombre}" />
+							</listitem>
+						</listbox>
+		        	</row>
+		        	<row align="center">
+		        		<button label="Salir" onClick="winvehusu$composer.cerrarVentana()" sclass="button default primary" />
+		        	</row>
+		        </rows>
+		    </grid>
+    </groupbox>
+
+<!--    
+    </div>
+   </center>
+</borderlayout>
+ -->
+
+
+</window>
+</zk>

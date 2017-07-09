@@ -1,0 +1,118 @@
+<?page title="Registro de Vehiculos" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="" border="0" vflex="min" sclass="metro" width="900px" height="380px" closable="true"  id="winmantveh" apply="ucsg.gmaps.control.RegistroVehiculoModalControl">
+
+<borderlayout width="100%" vflex="min" >
+     
+   <center vflex="min" autoscroll="true">
+   <div align="center" width="100%" vflex="min">
+    
+    <groupbox closable="false" vflex="min">
+    <caption label="VEHICULO" id="cptVehiculo" style="font-weight:bold; font-family:'Segoe UI_', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;"/>
+		   <grid vflex="min" >
+		       
+		        <rows>
+		        
+		      
+		        	<row>
+		        		<label value="Nombre: " id="lblNombre" width="150px"/>
+		        		<textbox id="txtNombre" focus="true" width="250px"/>
+		        	
+		                <label  value="Usuario: " id="lblUsuario" width="150px" />
+		                <combobox id="cmbCli"  model="@{winmantveh$composer.clientes}" selectedItem="@{winmantveh$composer.objCli}">   
+							<comboitem   self="@{each=cli}" label="@{cli.usuario}" context="@{cli.cedula}"  />
+						</combobox>
+		            </row>
+		            
+		            <row>
+		                      <label  value="Categoria: " id="lblCategoria" width="150px" />
+					                
+					                <combobox id="cmbCat"  model="@{winmantveh$composer.categoria}" selectedItem="@{winmantveh$composer.objCat}">   
+										<comboitem   self="@{each=cat}" label="@{cat.descripcion}" context="@{cat.identificador}"  />
+									</combobox>
+									      
+		            
+		        		<label value="Imei: " id="lblImei" width="150px"/>
+		        		<textbox id="txtImei" width="250px" />
+		        	</row>
+		        	<row>
+		        		<label value="Recorrido: " id="lblRecorrido" width="150px"/>
+		        		<doublebox id="txtRecorrido" width="250px"  /><!-- constraint="/^[0-9]+$/: Porfavor ingrese un numero"  -->
+		        	
+			        	<label value="Mantenimiento " id="lblMantenimiento" width="150px"/>
+			        	<checkbox id="cbxMantenimiento" />	
+		        	</row>
+		          
+		          
+                  <row>
+                      <label  value="Cercas: " id="lblCercas" width="200px" />
+			                
+			                <combobox id="cmbCer"  model="@{winmantveh$composer.cercas}" selectedItem="@{winmantveh$composer.cerca}">   
+								<comboitem   self="@{each=cer}" label="@{cer.nombreCerca}" context="@{cer.idCercas}"  />
+							</combobox>
+
+                      <label  value="Grupos: " id="lblGrupos" width="200px" />
+			                
+			                <combobox id="cmbGru"  model="@{winmantveh$composer.infoGrupo}" selectedItem="@{winmantveh$composer.objGrupo}">   
+								<comboitem   self="@{each=grupo}" label="@{grupo.gr_descripcion}" context="@{grupo.gr_Id}"  />
+							</combobox>
+							       
+            	</row>
+		            	
+		            	
+		          <row>
+		        	<label value="Hora/Uso " id="lblHoraUso" width="150px"/>
+		        	
+		        		<textbox id="txtHoraUso" width="250px" />
+		        	<label value="Placa:" id="lblPlaca" width="150px"/>
+		        	
+		        		<textbox id="txtPlaca" width="250px" />
+		        	
+		        </row>
+		        	
+	        	<row>
+		        	<label value="Año: " id="lblAnio" width="150px"/>
+		        		<intbox id="txtAnio" width="250px" />
+		        	<label value="Alias:" id="lblAlias" width="150px"/>
+		        		<textbox id="txtAlias" width="250px" />
+	        	</row>
+	        	<row>
+		        	<label value="Estado: " id="lblEstado" width="150px"/>
+		        		<textbox id="txtEstado" width="250px" readonly="true"/>
+		        	
+		        	<label value="Recorrido Inicial:" id="lblRecorridoInicial" width="150px"/>
+		        		<doublebox id="dblRecorridoInicial" width="250px" />
+		        	
+	        	</row>
+	        	
+	        	<row align="center">
+	        	<cell colspan="4" >
+		        	<label value="Notas:" id="lblNotas" width="150px"/>
+		        	
+		        		<textbox id="txtNotas" width="450px" height="100px" tabbable="true" multiline="true" />
+		        	</cell>
+	        	</row>
+		          
+		            <row>
+		            <cell colspan="4" style="text-align:center">
+		            <button label="Guardar" id="btnGuardar" onClick="winmantveh$composer.guardarVehiculo()" sclass="button default primary" />
+		             <separator orient="vertical" />
+		            <button label="Cancelar" id="btnCancelar" onClick="winmantveh$composer.cerrarVentana()" sclass="button default primary" />
+		             <separator orient="vertical" />
+		            <button label="Activar/Inactivar"  onClick="winmantveh$composer.inactivar()" id="btnEstado" disabled="true" sclass="button default primary"/>
+		            </cell>
+		            
+		            </row>  
+		            
+		        </rows>
+		    </grid>
+    </groupbox>
+    </div>
+   </center>
+   
+   
+</borderlayout>
+
+
+</window>
+</zk>

@@ -1,0 +1,288 @@
+<?page title="Mapa" contentType="text/html;charset=UTF-8"?>
+<zk>
+
+ <script src="Js/jquery/jquery.min.js"></script>
+    <script src="Js/jquery/jquery.widget.min.js"></script>
+    <script src="Js/jquery/jquery.mousewheel.js"></script>
+    <script src="Js/prettify/prettify.js"></script>
+
+    <!-- Metro UI CSS JavaScript plugins -->
+    <script src="js/load-metro.js"></script>
+
+    <!-- Local JavaScript -->
+    <script src="Js/docs.js"></script>
+    <script src="Js/github.info.js"></script>
+    <script src="Js/metro/metro-dropdown.js"></script>
+
+
+    <!-- Metro UI CSS JavaScript plugins -->
+    <script src="js/load-metro.js"></script>
+
+
+
+
+<window border="none" sclass="metro" width="100%" height="100%" id="winPrincipal" apply="ucsg.gmaps.control.ControlPrincipal"  >
+
+ <style src="Css/docs.css"/>
+<style src="Css/metro-bootstrap-responsive.css.css"/>
+<style src="Css/iconFonts.css"/>
+<style src="Css/metro-bootstrap.css"/>
+<borderlayout >
+
+<north size="0px">
+<borderlayout>
+<east size="170px">
+<div width="100%" height="100%" align="center">
+<image src="/IMG_MV/images_satelite_black_mv.jpg" width="100%" height="100%" align="center"></image>
+</div> 
+</east>
+<center >
+<div width="100%" height="100%" align="center">
+<image src="/IMG_MV/163413_479288597199_9445547199_5658562_8388607_n_face.jpg" width="100%" height="100%" align="center"></image>
+</div> 
+
+</center>
+<west size="170px">
+<div width="100%" height="100%" align="center">
+<image src="/IMG_MV/china.PNG" width="100%" height="100%" align="center"></image>
+</div>
+</west>
+</borderlayout>
+</north>
+
+<center>
+	<borderlayout>
+		<north size="60px"  >
+			<div>
+				<grid>
+					<columns>
+						<column align="center" style="background-color:#660066;" >
+							<!--  -->
+							<div height="30%"><label id="labelUser" visible="true" style="color: white;"/></div>
+							<div  height="70%">
+							<fisheyebar itemMaxHeight="45" itemMaxWidth="50"  itemWidth="25" itemHeight="25" >
+								<fisheye image="/Img/appbar.key.old.png" id="febPass" label="Welcome" style="background-color:#660066; color: white;" tooltiptext="Cambio de Password" onClick='winPrincipal$composer.cargaFrameDinamico("MantenimientoPassword.zul","8")'  />
+							</fisheyebar>
+							</div>
+						</column>
+						
+						<column align="center" style="background-color:#D426B4;" >
+							<!-- <image src="/Img/Vehiculos1.png" onClick='winPrincipal$composer.cargaFrameDinamico("MantenimientoVehicuo.zul","3")' tooltiptext="Vehiculos" align="top"/> -->
+							<fisheyebar itemMaxHeight="72" itemMaxWidth="72"  itemWidth="50" itemHeight="50" >
+								<fisheye image="/Img/appbar.home.png" id="febInicio"  style="background-color:#D426B4;" tooltiptext="Inicio" onClick='winPrincipal$composer.cargaFrameDinamico("MapaGoogle3.zul","5")'  />
+							</fisheyebar>
+						</column>
+						
+						<column align="center" style="background-color:orange;" >
+							<!-- <image src="/Img/Vehiculos1.png" onClick='winPrincipal$composer.cargaFrameDinamico("MantenimientoVehicuo.zul","3")' tooltiptext="Vehiculos" align="top"/> -->
+							<fisheyebar itemMaxHeight="72" itemMaxWidth="72" itemWidth="50" itemHeight="50" >
+								<fisheye image="/Img/appbar.transit.congestion.png" id="febVehiculos" tooltiptext="Vehiculos" onClick='winPrincipal$composer.cargaFrameDinamico("MantenimientoVehicuo.zul","3")'  />
+							</fisheyebar>
+						</column>
+						<column align="center" style="background-color:red;">
+							<!-- <image src="/Img/categoria1.png" onClick='winPrincipal$composer.cargaFrameDinamico("MantenimientoCategoria.zul","2")' tooltiptext="Categorias" align="top"/> -->
+							<fisheyebar itemMaxHeight="85" itemMaxWidth="85" itemWidth="50" itemHeight="50" >
+								<fisheye image="/Img/appbar.layer.png" id="febCategorias" tooltiptext="Categorias"  onClick='winPrincipal$composer.cargaFrameDinamico("MantenimientoCategoria.zul","2")'   />
+							</fisheyebar>
+						</column>
+						<column align="center" style="background-color:#4AE84D;">
+							<!-- <image src="/Img/cercas2.png" onClick='winPrincipal$composer.cargaFrameDinamico("MantenimientoCercas.zul","4")' tooltiptext="Cercas" align="top"/> -->
+							<fisheyebar itemMaxHeight="75" itemMaxWidth="75" itemWidth="50" itemHeight="50" >
+								<fisheye image="/Img/appbar.vector.polygon.png" id="febCercas" tooltiptext="Cercas" onClick='winPrincipal$composer.cargaFrameDinamico("MantenimientoCercas.zul","4")'  />
+							</fisheyebar>
+						</column>
+						<column align="center"  style="background-color:black;">
+							<!-- <image src="/Img/grupo2.png" onClick='winPrincipal$composer.cargaFrameDinamico("MantenimientoGrupo.zul","9")' tooltiptext="Grupos." align="top"/> -->
+							<fisheyebar itemMaxHeight="75" itemMaxWidth="75" itemWidth="50" itemHeight="50" >
+								<fisheye image="/Img/appbar.group.png" id="febGrupos" tooltiptext="Grupos" onClick='winPrincipal$composer.cargaFrameDinamico("MantenimientoGrupo.zul","9")'  />
+							</fisheyebar>
+						</column>
+						<column align="center"  style="background-color:#267DD4;">
+							<!-- <image src="/Img/usuarios1.png" onClick='winPrincipal$composer.cargaFrameDinamico("MantenimientoUsuario.zul","1")' tooltiptext="Usuarios" align="top"/> -->
+							<fisheyebar itemMaxHeight="75" itemMaxWidth="75" itemWidth="50" itemHeight="50" >
+								<fisheye image="/Img/appbar.man.walk.png" id="febUsuarios" tooltiptext="Usuarios" onClick='winPrincipal$composer.cargaFrameDinamico("MantenimientoUsuario.zul","1")'  />
+							</fisheyebar>
+						</column>
+						
+						<column align="center" style="background-color:#D4264F;" >
+							<!-- <image src="/Img/usuarios1.png" onClick='winPrincipal$composer.cargaFrameDinamico("MantenimientoUsuario.zul","1")' tooltiptext="Usuarios" align="top"/> -->
+							<fisheyebar itemMaxHeight="75" itemMaxWidth="75" itemWidth="50" itemHeight="50" >
+								<fisheye image="/Img/appbar.people.profile.png" id="febPerfiles" tooltiptext="Perfiles" onClick='winPrincipal$composer.cargaFrameDinamico("MantenimientoPerfiles.zul","9")'  />
+							</fisheyebar>
+						</column>
+						
+						
+						<column align="center" style="background-color:#9E9E9E;">
+							<!-- <image src="/Img/cercas2.png" onClick='winPrincipal$composer.cargaFrameDinamico("MantenimientoCercas.zul","4")' tooltiptext="Cercas" align="top"/> -->
+							<fisheyebar itemMaxHeight="75" itemMaxWidth="75" itemWidth="50" itemHeight="50" >
+								<fisheye image="/Img/appbar.book.list.png" id="febReportes" tooltiptext="Reportes" onClick='winPrincipal$composer.cargaFrameDinamico("Reportes.zul","7")'  />
+							</fisheyebar>
+						</column>
+						
+						
+						
+						
+						<column align="center" style="background-color:brown;">
+							<!-- <image src="/Img/cercas2.png" onClick='winPrincipal$composer.cargaFrameDinamico("MantenimientoCercas.zul","4")' tooltiptext="Cercas" align="top"/> -->
+							<fisheyebar itemMaxHeight="75" itemMaxWidth="75" itemWidth="50" itemHeight="50" >
+								<fisheye image="/Img/appbar.map.treasure.png" id="febSrvRutas" tooltiptext="Servicio de Rutas" onClick='winPrincipal$composer.cargaFrameDinamico("ServicioRutas.zul","11")'  />
+							</fisheyebar>
+						</column>
+						
+						
+						
+						
+						<column align="center" style="background-color:#EDED28;">
+					<!-- <separator spacing="80%" orient="vertical"/> -->
+							<!-- <button label="desconectar"  onClick='winPrincipal$composer.desconectar()'/> -->
+							<!-- <image src="/Img/desconectar1.png" onClick='winPrincipal$composer.desconectar()' tooltiptext="Vehiculos" align="top"/> -->
+							<fisheyebar itemMaxHeight="75" itemMaxWidth="75" itemWidth="50" itemHeight="50" >
+								<fisheye image="/Img/appbar.cancel.png" id="febDesconectar" tooltiptext="Desconectar" onClick='winPrincipal$composer.desconectar()'  />
+							</fisheyebar>
+						</column>
+						
+					</columns>
+				</grid>
+			</div>
+		</north>
+		<south size="93%">
+			<!-- <iframe  width="100%" height="100%" id="frmPrincipal" /> -->
+			<include  width="100%" height="100%" id="frmPrincipal" />
+		</south>
+	
+	
+	</borderlayout>
+</center>
+<west size="170px" title="Menú Principal" collapsible="true" id="westPrincipal" visible="false">
+
+<tree width="100%" height="100%" sclass="sidebar (light)">
+	<treecols >
+		<treecol label="Menú" sclass="title" />		
+	</treecols>
+	<treechildren>
+		<treeitem sclass="dropdown-menu">
+			<treerow>
+				<treecell label="Administración" sclass="title" image="/Img/planetIcon.jpg" />
+			</treerow>
+	<treechildren>
+	 		<treeitem>
+			<treerow>
+				<treecell label="Cercas" class="title" image="/Img/satelliteIcon_16x16.jpg" onClick='winPrincipal$composer.cargaFrameDinamico("MapaGoogle4.zul","4")'/>
+			</treerow>
+		</treeitem>	
+ 		<!--<treeitem>
+			<treerow>
+				 <treecell label="Mapa Completo" image="/Img/satelliteIcon_16x16.jpg" onClick='winPrincipal$composer.cargaFrameDinamico("MapaGoogle.zul","50")'/> 
+			</treerow>
+		</treeitem>	-->
+		 <!-- <treeitem>
+			<treerow>
+				<treecell label="Mapa de Vehiculos" image="/Img/satelliteIcon_16x16.jpg" onClick='winPrincipal$composer.cargaFrameDinamico("MapaGoogle2.zul","6")'/>
+			</treerow>	
+		</treeitem> -->	 
+		<treeitem>
+			<treerow>
+				<treecell label="Ruta de Vehiculos" image="/Img/satelliteIcon_16x16.jpg" onClick='winPrincipal$composer.cargaFrameDinamico("MapaGoogle3.zul","5")'/>
+			</treerow>	
+		</treeitem>	
+		<treeitem open="false">
+			<treerow >
+				<treecell  label="Informacion" image="/Img/satelliteIcon_16x16.jpg" />
+			</treerow>
+			
+			
+				<treechildren >
+ 						<treeitem>
+							<treerow>
+								<treecell label="Categoria " image="/Img/satelliteIcon_16x16.jpg" onClick='winPrincipal$composer.cargaFrameDinamico("MantenimientoCategoria.zul","2")'/>
+							</treerow>
+						</treeitem>	
+						<treeitem>
+							<treerow>
+								<treecell label="Vehiculos" image="/Img/satelliteIcon_16x16.jpg" onClick='winPrincipal$composer.cargaFrameDinamico("MantenimientoVehicuo.zul","3")'/>
+							</treerow>
+						</treeitem>
+						
+						<treeitem>
+							<treerow>
+								<treecell label="Cercas" image="/Img/satelliteIcon_16x16.jpg" onClick='winPrincipal$composer.cargaFrameDinamico("MantenimientoCercas.zul","4")'/>
+							</treerow>
+						</treeitem>
+						
+							<treeitem>
+							<treerow>
+								<treecell label="Usuarios" image="/Img/satelliteIcon_16x16.jpg" onClick='winPrincipal$composer.cargaFrameDinamico("MantenimientoUsuario.zul","1")'/>
+							</treerow>
+						</treeitem>
+						
+						<treeitem>
+							<treerow>
+								<treecell label="Grupos" image="/Img/satelliteIcon_16x16.jpg" onClick='winPrincipal$composer.cargaFrameDinamico("MantenimientoGrupo.zul","9")'/>
+							</treerow>
+						</treeitem>
+						
+						<treeitem>
+							<treerow>
+								<treecell label="Perfiles" image="/Img/satelliteIcon_16x16.jpg" onClick='winPrincipal$composer.cargaFrameDinamico("MantenimientoPerfiles.zul","9")'/>
+							</treerow>
+						</treeitem>
+						
+				</treechildren>
+			
+						
+		</treeitem>
+		
+		
+		
+		
+		<treeitem open="false">
+			<treerow>
+				<treecell label="Reportes" image="/Img/satelliteIcon_16x16.jpg" />
+			</treerow>	
+		
+		<treechildren>
+ 						<treeitem>
+							<treerow>
+								<treecell label="Alar. Enc. y Apag.: " image="/Img/satelliteIcon_16x16.jpg" onClick='winPrincipal$composer.cargaFrameDinamico("AlarmasEncendidoApagado.zul","7")'/>
+							</treerow>
+						</treeitem>	
+						<treeitem>
+							<treerow>
+								<treecell label="Aler. Cercas" image="/Img/satelliteIcon_16x16.jpg" onClick='winPrincipal$composer.cargaFrameDinamico("AlertaCercas.zul","7")'/>
+							</treerow>
+						</treeitem>
+						
+				</treechildren>
+		
+		
+		</treeitem>
+			<treeitem>
+			<treerow>
+				<treecell label="Password" image="/Img/satelliteIcon_16x16.jpg" onClick='winPrincipal$composer.cargaFrameDinamico("MantenimientoPassword.zul","8")'/>
+			</treerow>
+		</treeitem>			
+	</treechildren>
+		</treeitem>		
+	</treechildren>
+</tree>
+</west>
+
+<south  border="0"  >
+	<grid>
+					<columns>
+						<column align="left">
+							<label value="powered by MIHP." />
+						</column>
+						<column align="right">
+					<!-- <separator spacing="80%" orient="vertical"/> -->
+							<label value="CopyRight: 2014." />
+						</column>
+					</columns>
+	</grid>
+
+</south>
+
+
+</borderlayout>
+</window>
+</zk>

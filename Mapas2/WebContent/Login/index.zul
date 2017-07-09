@@ -1,0 +1,45 @@
+<?page title="Rastreo Vehicular" contentType="text/html;charset=UTF-8"?>
+<?link rel="shortcut icon" href="Img/favicon.ico" type="image/x-icon"?>
+<zk>
+<div width="100%" height="100%" align="center">
+
+
+
+<window title="Mapas" border="normal" height="165px" width="500px" apply="ucsg.gmaps.control.ControlIndex" id="winLogin" >
+
+
+
+
+
+<label value="Introduzca su Usuario y Contraseña para ingresar" width="100px" />
+<grid fixedLayout="true" width="100%" height="100%">      
+
+
+        
+        <rows>
+            <row>
+            	<label  value="Identificacion: " width="150px" />
+                <hlayout>                   
+                <textbox id="iden" value="" width="250px" tabindex="0"/>
+                </hlayout>
+            </row>
+            <row>
+                Password
+                <textbox id="pass" type="password" value="" width="250px" />
+            </row>            
+            <row><cell colspan="3" style="text-align:center">
+            <button label="Iniciar Sesión" width="100px" height="30px" id="btnIniciar" onClick="winLogin$composer.validaUsuario()">                   
+     		</button></cell> 		
+     		</row>    		
+     	<!-- 	<row>  -->
+     	<!--	<a href="http://localhost:8080/zkdesign/" target="main">Regístrate!!!</a> -->   
+     	<!--	<a href="http://www.google.com"  target="main">Olvidaste tu Contraseña!!!</a> -->
+     	<!--	<a  >Olvidaste tu Contraseña!!!</a> -->
+     	<!-- 	</row> -->
+        </rows>     
+</grid>
+
+
+</window>
+</div>
+</zk>

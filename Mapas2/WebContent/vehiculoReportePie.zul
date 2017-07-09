@@ -1,0 +1,6 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window  apply="ucsg.gmaps.control.VehiculoReportePieControl" id="winChartPieVehHora" closable="true" title="Reporte Estadistico" border="normal" width="90%" height="90%"> 
+<charts id="chart" type="pie" title="Porcentaje recorrido de vehiculos"/>
+</window>
+</zk>

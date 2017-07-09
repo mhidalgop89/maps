@@ -1,0 +1,78 @@
+<?page title="Mantenimiento de Cercas" contentType="text/html;charset=UTF-8"?>
+<zk>
+
+ 
+
+<window title="" border="normal"  width="700px" height="500px" sclass="metro" closable="true"  
+id="winMantCercas" apply="ucsg.gmaps.control.RegistroMantenimientoCercasModalControl">
+
+ 
+<borderlayout width="100%" height="100%">
+     
+   <center >
+   <div align="center" width="100%" height="100%">
+    <groupbox width="100%" height="100%" closable="false" id="grbManCer">
+    <caption label="MANTENIMIENTO DE CERCAS" id="cptMantenimientoCerca" style="font-weight:bold; font-family:'Segoe UI_', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;"/>
+   <grid fixedLayout="true">
+       
+        <rows>
+        
+      
+        
+        
+            <row>
+                <label  value="Nombre: "  id="lblNombre" width="150px" />
+                <hlayout>
+                    <textbox id="nomCer" focus="true" width="250px"/>
+                </hlayout>           
+           
+                 <label  value="Descripcion: "  id="lblDescripcion" width="150px" />
+                <textbox id="desCer"   width="250px" />       
+            </row>
+            <row>
+                <label  value="Usuario: "  id="lblUsuario" width="150px" />
+                <textbox id="usuCer"   width="250px"  disabled="true"/>       
+            
+                <label  value="Estado: " id="lblEstado" width="150px" />
+                 <combobox id="cmbEstado">
+                 <comboitem label="ACTIVO" value="A"/>
+                 <comboitem label="INACTIVO" value="I"/>
+                 
+                 </combobox>    
+            </row>
+          
+            <row>
+            <cell colspan="4" style="text-align:center">
+            <button label="Actualizar" id="btnActualizar" onClick="winMantCercas$composer.guardarCercas()" sclass="button default primary"   />
+            <separator orient="vertical"/>
+            <button label="Cancelar" id="btnCancelar" onClick="winMantCercas$composer.cerrarVentana()" sclass="button default primary"  />
+            </cell>
+            
+            </row>  
+        </rows>
+    </grid>
+    
+    <script type="text/javascript" content="zk.googleAPIkey='AIzaSyAy-s3CJS3dBEtl3CNmY9eckKSIdM02Uj0'"/>
+    <gmaps id="mymap" width="100%" height="100%"
+	 lat="40.71213418976525" lng="-73.96785736083984" zoom="11"  >
+	<!-- showSmallCtrl="true"  scrollWheelZoom="true" showTypeCtrl="true" -->
+    
+   
+    
+    
+    <gpolyline id="mypoly" color="#3333cc" weight="5"/>
+</gmaps>
+
+   </groupbox>
+    </div>
+   </center>
+   
+   
+   
+   
+</borderlayout>
+
+
+
+</window>
+</zk>

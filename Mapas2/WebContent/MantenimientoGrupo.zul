@@ -1,0 +1,90 @@
+<?page title="Mantenimiento Grupo" contentType="text/html;charset=UTF-8"?>
+<zk>
+
+<script src="Js/jquery/jquery.min.js"></script>
+    <script src="Js/jquery/jquery.widget.min.js"></script>
+    <script src="Js/jquery/jquery.mousewheel.js"></script>
+    <script src="Js/prettify/prettify.js"></script>
+
+    <!-- Metro UI CSS JavaScript plugins -->
+    <script src="js/load-metro.js"></script>
+
+    <!-- Local JavaScript -->
+    <script src="js/docs.js"></script>
+    <script src="js/github.info.js"></script>
+
+<window title="" border="normal" sclass="metro" width="100%"  apply="ucsg.gmaps.control.GrupoControl" height="100%" id="winMantGrupo">
+	
+	 <style src="Css/docs.css"/>
+<style src="Css/metro-bootstrap-responsive.css.css"/>
+<style src="Css/iconFonts.css"/>
+<style src="Css/metro-bootstrap.css"/>
+	
+	<borderlayout width="100%" height="100%">
+	
+	<center border="normal">
+	<panel border="none" width="100%" height="100%" framable="true">
+	<panelchildren>
+		<toolbar>
+		<!-- <toolbarbutton label="Nuevo Grupo" onClick="winMantGrupo$composer.cargarDataModal()"/> -->
+		<fisheyebar itemMaxHeight="40" itemMaxWidth="40"  width="50" height="50" itemWidth="25" itemHeight="25"  >
+				<fisheye  image="Img/appbar.add.png" id="febAgregar" style="background-color:#16499a;" tooltiptext="Agregar Grupo" onClick='winMantGrupo$composer.cargarDataModal4()'  />
+		</fisheyebar>
+		</toolbar><!-- onDoubleClick="winMantGrupo$composer.cargarDataModal()" -->
+		<listbox id="listGrupo" vflex="1" model="@{winMantGrupo$composer.infoGrupo}" multiple="true" mold="paging" pageSize="10" onDoubleClick="winMantGrupo$composer.cargarDataModal()" selectedItem="@{winMantGrupo$composer.objGrupo}">
+	<auxhead>
+				
+				<auxheader colspan="1">
+					
+				</auxheader>
+				<auxheader colspan="1">
+					<image src="/Img/filtro.png"/>
+					<textbox hflex="1" width="50%" tooltiptext="Filtro de grupo" instant="true" id="txtFilDes" onOK="winMantGrupo$composer.filtraGrupo()"/>
+				</auxheader>
+				<auxheader colspan="1">
+					<image src="/Img/filtro.png"/>
+					<textbox hflex="1"  width="50%" instant="true" maxlength="100" tooltiptext="Filtro de Valor" id="txtFilGrupo" onOK="winMantGrupo$composer.filtraGrupo()"/>
+				</auxheader>
+						
+	</auxhead>	
+	
+	
+	<listhead>
+		
+		<listheader label="Editar" id="lshEditar" hflex="min" />
+		<listheader label="Grupo" id="lshGrupo" />
+		<listheader label="Valor"  id="lshValor" />
+		
+
+	</listhead>
+	<listitem self="@{each='grupo'}">
+		
+		<!-- <listcell  image="/Img/editar.png" onClick="winMantGrupo$composer.cargarDataModal()" /> -->
+		<listcell >
+			<image id="imgBorrar" src="/Img/Erase.png" tooltiptext="Eliminar" style="background-color:#16499a;" onClick="winMantGrupo$composer.eliminarGrupo()" width="25px" height="25px"/>
+			<image id="imgEditar" src="/Img/appbar.edit.box.png"  style="background-color:#16499a;"  width="25px" height="25px" onClick="winMantGrupo$composer.cargarDataModal()"/>
+		<image id="imgVerVehiculos" src="/Img/appbar.transit.congestion.png"  tooltiptext="Ver Vehiculos" onClick="winMantGrupo$composer.cargarDataModal2()"  
+							width="25px" height="25px" style="background-color:#16499a;" />
+		<image id="imgVerUsuarios" src="/Img/appbar.man.walk.png"  tooltiptext="Ver Usuarios" onClick="winMantGrupo$composer.cargarDataModal3()" 
+							width="25px" height="25px" style="background-color:#16499a;" />
+							
+		
+		</listcell>
+		<listcell label="@{grupo.gr_descripcion}" />
+		<listcell label="@{grupo.gr_value}" />
+		
+	</listitem>
+	
+</listbox>
+
+	</panelchildren>
+	</panel>
+	</center>
+	
+	
+</borderlayout>
+	
+	
+	
+</window>
+</zk>
