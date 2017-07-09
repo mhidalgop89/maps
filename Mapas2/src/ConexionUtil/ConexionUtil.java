@@ -26,7 +26,7 @@ public class ConexionUtil {
     {
         //Change these settings according to your local configuration
 		Connection conn =null;
-        try{
+        try{ 
 
        
 		String driver = "com.mysql.jdbc.Driver";
