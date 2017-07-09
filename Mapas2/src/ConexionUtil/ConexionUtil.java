@@ -28,7 +28,7 @@ public class ConexionUtil {
 		Connection conn =null;
         try{ 
 
-       
+        
 		String driver = "com.mysql.jdbc.Driver";
         String connectString = "jdbc:mysql://localhost:3306/gmap";
         String user = "root";//"root";
