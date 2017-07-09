@@ -21,10 +21,6 @@ import org.omg.CORBA.Context;
 import org.xml.sax.InputSource;
 
 
-
-
-
-
 public class ConexionUtil {
 
 	public static Connection getConnection()// throws ClassNotFoundException, SQLException
