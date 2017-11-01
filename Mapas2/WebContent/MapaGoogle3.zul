@@ -88,7 +88,8 @@ body > div:hover {
 }
 }
   </style>
-     <style>
+   
+   <!-- <style>
     .water-mark { 
         color: gray; font-style: italic; 
     }
@@ -105,7 +106,7 @@ body > div:hover {
         width: 100px;
         text-align: center;
     } 
-    </style>
+    </style> -->  
     
     <zscript>
 int i = 0
@@ -477,7 +478,7 @@ onTimer='winMapGoogle2$composer.onTimer2()'     />
 
 </window>
 
- <!-- Load the script jq("$username").Watermark("Your Name","gray"); -->
+ <!-- Load the script jq("$username").Watermark("Your Name","gray"); 
     <script type="text/javascript" src="/Widgets/Effects/FormEffecs/jquery.maskedinput.js" />
     <script type="text/javascript" src="/Widgets/Effects/FormEffecs/jquery.watermarkinput.js" /> 
     <script type="text/javascript">
@@ -494,7 +495,7 @@ onTimer='winMapGoogle2$composer.onTimer2()'     />
             
 
         });
-    </script>
+    </script>-->
 
 
 </zk>

@@ -23,7 +23,7 @@ public class RegistraCoordenadas {
 				clsCall.setDouble(3, Double.valueOf(altitud));
 				clsCall.setTimestamp(4,	 new java.sql.Timestamp( new Date().getTime()));
 				clsCall.setDouble(5, 0);
-				clsCall.setDouble(6, 0);
+				clsCall.setDouble(6, 10);
 				clsCall.setString(7, "POS");
 				clsCall.setInt(8, 0);
 				clsCall.setInt(9, 0);

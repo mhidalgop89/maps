@@ -6,17 +6,13 @@
     <script src="Js/jquery/jquery.mousewheel.js"></script>
     <script src="Js/prettify/prettify.js"></script>
 
-    <!-- Metro UI CSS JavaScript plugins -->
-    <script src="js/load-metro.js"></script>
+    <!-- Metro UI CSS JavaScript plugins 
+    <script src="js/load-metro.js"></script>-->
 
     <!-- Local JavaScript -->
     <script src="Js/docs.js"></script>
     <script src="Js/github.info.js"></script>
     <script src="Js/metro/metro-dropdown.js"></script>
-
-
-    <!-- Metro UI CSS JavaScript plugins -->
-    <script src="js/load-metro.js"></script>
 
 
 

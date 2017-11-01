@@ -95,6 +95,7 @@ public List<Coordenadas>  TrazaRuta6Dao(int Pv_id_veh ,String Pv_fec_desde , Str
 			if(conn != null){
 				clsCall = conn.prepareCall("{call MAP_TRAZAR_RUTA_6(?,?,?)}");
 				clsCall.setInt(1, Pv_id_veh);
+				System.out.println("MAP_TRAZAR_RUTA_6: "+Pv_id_veh+"--"+Pv_fec_desde+"--"+Pv_fec_hasta);
 				clsCall.setString(2, Pv_fec_desde);
 				clsCall.setString(3, Pv_fec_hasta);		
 				

@@ -242,8 +242,8 @@ public void getUserFromIndex()
 				System.out.println("idioma seleccionado: "+cmbIdioma.getSelectedItem().getValue() );
 				Executions.getCurrent().getSession().setAttribute("usuario", objUsuarioSistema);
 				Executions.getCurrent().getSession().setAttribute("_user",idenUser);
-				//Executions.sendRedirect("principal.zul");
-				Executions.getCurrent().sendRedirect("principal.zul", "_blank");
+				Executions.sendRedirect("principal.zul");
+				//Executions.getCurrent().sendRedirect("principal.zul", "_blank");
 				Clients.evalJavaScript("location.reload()");
 				//Executions.getCurrent().sendRedirect("FormularioActualizacion.zul");
 			}else{
