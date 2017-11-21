@@ -103,8 +103,8 @@ public void getUserFromIndex()
 	objUsuarioSistema =(MapUsuarioSistema)Executions.getCurrent().getSession().getAttribute("usuario");
 	
 	if (objUsuarioSistema!=null)
-		Executions.getCurrent().sendRedirect("bienvenido.zul");
-		//Executions.sendRedirect("principal.zul");
+		//Executions.getCurrent().sendRedirect("bienvenido.zul");
+		Executions.sendRedirect("principal.zul");
 	
 		
 	/*

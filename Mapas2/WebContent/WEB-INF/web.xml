@@ -93,8 +93,8 @@
   </listener>	
   
   <welcome-file-list>
+  	<welcome-file>/index.zul</welcome-file>
   	<welcome-file>/Login/index.html</welcome-file>
-    <welcome-file>index.zul</welcome-file>
   </welcome-file-list>
     <session-config>
     <session-timeout>900</session-timeout>

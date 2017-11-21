@@ -1407,8 +1407,8 @@ public class MapaGoogle3Control extends GenericForwardComposer {
 		timer2.stop();
 		stopTimerRuta();
 		cleanMap();
-		// if(mapaEnUso)
-		if (false) {
+		/* if(mapaEnUso){
+		
 
 			int respuesta = Messagebox.show("¿Desea generar una nueva ruta?",
 					"Atención!!!", Messagebox.YES | Messagebox.NO,
@@ -1417,7 +1417,7 @@ public class MapaGoogle3Control extends GenericForwardComposer {
 			if (respuesta == 16)
 				nuevaRuta();
 
-		} else {
+		} else {*/
 			mapaEnUso = true;
 			objVehEnUso = objCatVeh;
 
@@ -1696,7 +1696,7 @@ public class MapaGoogle3Control extends GenericForwardComposer {
 
 			}
 
-		}
+		//}//cierre de if(mapaEnUso){}else{
 		mymark2 = new Gmarker();
 
 	}

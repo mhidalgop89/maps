@@ -47,6 +47,41 @@ public class ReadPropertiesUtil {
 		return valor;
 	}
 	
+	public static String obtenerConfig(String propiedad)
+	{
+		Properties prop = new Properties();
+		InputStream input = null;
+		
+		String valor=null;
+	 
+		try {
+			
+			String so = System.getProperty("os.name"); 
+			
+			if (so.contains("Windows"))
+			{
+					input = new FileInputStream("C:\\propertiesMaps\\propertiesGmaps\\config.properties");
+			
+			}else
+			{
+				input = new FileInputStream("/opt/propertiesMaps/propertiesGmaps/config.properties");
+			}
+	 
+			
+	 
+			// load a properties file
+			prop.load(input);
+			
+			
+			valor =prop.getProperty(propiedad);
+			
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return valor;
+	}
+	
 	
 	public static void main(String[] args) {
 		System.out.println(ReadPropertiesUtil.obtenerProperty("Ingresar","en"));

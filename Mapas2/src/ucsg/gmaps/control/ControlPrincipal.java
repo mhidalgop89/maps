@@ -149,7 +149,8 @@ public void doAfterCompose(Component cmp){
 //	_user=null;
 //	Executions.getCurrent().getSession().setAttribute("_user",_user);
 //	Executions.getCurrent().getSession().setAttribute("_desconectar","S");
-	Executions.sendRedirect("/Login/index.html");
+//	Executions.sendRedirect("/Login/index.html");
+		Executions.sendRedirect("/index.zul");
 		
 	}
 	

@@ -20,6 +20,8 @@ import javax.xml.xpath.XPathFactory;
 import org.omg.CORBA.Context;
 import org.xml.sax.InputSource;
 
+import Util.ReadPropertiesUtil;
+
 public class ConexionUtil {
 
 	public static Connection getConnection()// throws ClassNotFoundException, SQLException
@@ -28,12 +30,13 @@ public class ConexionUtil {
 		Connection conn =null;
         try{ 
 
-        
-		String driver = "com.mysql.jdbc.Driver";
-        String connectString = "jdbc:mysql://localhost:3306/gmap";
-        String user = "root";//"root";
-        String password =/*"parqueoPositivo2016*+";*/ "root";//admin
+        //ReadPropertiesUtil.obtenerConfig("control.MapaGoogle3Control.ListaVehiculos", objUsuarioSistema.getIdioma())
+		String driver = ReadPropertiesUtil.obtenerConfig("ec.gob.maps.util.driver");//"com.mysql.jdbc.Driver";
+        String connectString =  ReadPropertiesUtil.obtenerConfig("ec.gob.maps.util.connectString");//"jdbc:mysql://localhost:3306/gmap";
+        String user = ReadPropertiesUtil.obtenerConfig("ec.gob.maps.util.user");//"root";
+        String password =ReadPropertiesUtil.obtenerConfig("ec.gob.maps.util.password");///*"parqueoPositivo2016*+";*/ "root";//admin
         Class.forName(driver);
+        System.out.println("cadCon: driver:"+driver+"-connectString:"+connectString+"-user:"+user+"-password:"+password);
         conn = DriverManager.getConnection(connectString, user, password);
       System.out.println("llega mySql");
         	

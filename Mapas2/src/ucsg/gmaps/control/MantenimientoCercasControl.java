@@ -184,7 +184,7 @@ public void cargarDataModal(){
 		//txtFilUsu.setText("");
 		
 		getCercas();
-		
+		objCerca=null;
 		}
 		else
 			Messagebox.show(ReadPropertiesUtil.obtenerProperty("NoTienePermiso", objUsuarioSistema.getIdioma()),
@@ -339,7 +339,7 @@ public void eliminarCerca()
 	
 	try{
 	
-	if((rpp.buscarPermisosDePerfilporIdPermiso(perfil, "4")&&objCerca==null))
+	if((rpp.buscarPermisosDePerfilporIdPermiso(perfil, "4")/*&&objCerca==null*/))
 	{ 
 		
 		Executions.sendRedirect("MapaGoogle4.zul");

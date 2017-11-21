@@ -3,6 +3,7 @@
 <window title="Mapa Completo" border="normal" width="100%" height="100%" id="gmap" apply="ucsg.gmaps.control.GmapsControl">
 <!-- <north width="600px" height="600px"> -->
  <script type="text/javascript" content="zk.googleAPIkey='AIzaSyAy-s3CJS3dBEtl3CNmY9eckKSIdM02Uj0'" />
+ <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALgFuggcA7eXZqwCY0Lrvpr92ZdS8Dfxs" type="text/javascript"></script>
   
   <timer id="timer" delay="1000" repeats="true" 
 onTimer='gmap$composer.onTimer()'     />    

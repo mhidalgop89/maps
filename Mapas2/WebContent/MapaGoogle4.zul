@@ -22,6 +22,7 @@
 
 
 <script type="text/javascript" content="zk.googleAPIkey='AIzaSyAy-s3CJS3dBEtl3CNmY9eckKSIdM02Uj0'" />
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALgFuggcA7eXZqwCY0Lrvpr92ZdS8Dfxs" type="text/javascript"></script>
 
 <gmaps id="mymap2" width="100%" height="90%" mapType="hybrid" zoom="10" visible="false" showSmallCtrl="true"
 showTypeCtrl="true" scrollWheelZoom="true" lat="-2.318825000000000" lng="-79.888853333333330">

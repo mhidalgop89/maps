@@ -12,6 +12,7 @@
 onTimer='winMapGoogle2$composer.onTimer()'     />  
 
 <script type="text/javascript" content="zk.googleAPIkey='AIzaSyAy-s3CJS3dBEtl3CNmY9eckKSIdM02Uj0'"  />
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALgFuggcA7eXZqwCY0Lrvpr92ZdS8Dfxs" type="text/javascript"></script>
 <borderlayout>
 
 <center border="normal">
